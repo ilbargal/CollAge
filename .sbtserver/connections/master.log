@@ -1,0 +1,37 @@
+New log file opened at Sat Mar 05 17:14:44 IST 2016 by 2340@WINDOWS-90BGOLL
+Taking next connection to: 5410
+New client attempting to connect on port: 5411-5410
+  Address = /192.168.227.1:5410
+This client on port 5411 has uuid 232a7181-5547-4dd6-b2d4-6f2426ef0d9d configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-232a7181-5547-4dd6-b2d4-6f2426ef0d9d
+Taking next connection to: 5410
+New client attempting to connect on port: 5664-5410
+  Address = /192.168.227.1:5410
+Handshake exception on socket: 5664
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.net.SocketException: Software caused connection abort: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readInt(DataInputStream.java:387)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 5410
+New client attempting to connect on port: 5665-5410
+  Address = /192.168.227.1:5410
+This client on port 5665 has uuid 648b25ad-6b05-49f2-9176-457dfbb6c1a4 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-648b25ad-6b05-49f2-9176-457dfbb6c1a4
+Taking next connection to: 5410
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 2340@WINDOWS-90BGOLL logs at Sat Mar 05 17:37:48 IST 2016, goodbye.
