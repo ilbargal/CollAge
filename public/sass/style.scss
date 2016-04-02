@@ -9,7 +9,7 @@ $border-radius-base:  4px !default;
 $padding-base-vertical: 14px !default;
 
 $brand-primary: #FBB040 !default;
-$brand-white: #fff;
+$brand-white: #F6F0EE;
 $brand-black: #000;
 $brand-darker: #444;
 $brand-gray: #ccc;
@@ -73,8 +73,6 @@ $navbar-height:                  60px !default;
 // Import Bootstrap
 @import 'bootstrap';
 
-
-
 /* Template Style =========== */
 
 // Template Base
@@ -117,10 +115,10 @@ h1, h2, h3, h4, h5, h6 {
 
 // Template Layout
 #fh5co-header {
-	float: left;
+	float: right;
 	width: 100%;
 	position :relative;
-	position: absolute;
+	position: fixed;
 	z-index: 99;
 	top: 0;
 	> .navbar {
@@ -134,7 +132,6 @@ h1, h2, h3, h4, h5, h6 {
 		-moz-box-shadow: 0 0 9px 0 rgba(0,0,0,.1);
 		-ms-box-shadow: 0 0 9px 0 rgba(0,0,0,.1);
 		box-shadow: 0 0 9px 0 rgba(0,0,0,.1);
-		font-size: 13px;
 		border: transparent;
 		@media screen and (max-width: $screen-xs) {
 			padding-left: 0px;
@@ -321,7 +318,7 @@ h1, h2, h3, h4, h5, h6 {
 		padding: 0;
 		margin: 0;	
 		display: block;
-		float: left;
+		float: right;
 		width: 100%;
 		margin-bottom: 20px;
 		padding-bottom: 20px;
@@ -333,11 +330,11 @@ h1, h2, h3, h4, h5, h6 {
 		font-family: $font-monsterrat;
 		img {
 			max-width: 100%;
-			float: left;
+			float: right;
 			@include border-radius(4px);
 		}
 		.fh5co-post-media {
-			float: left;
+			float: right;
 			width: 20%;
 			margin-right: 5%;
 			margin-top: 5px;
@@ -563,7 +560,7 @@ pre {
 	border-right: 1px solid $brand-lighter;
 }
 .fh5co-feature {
-	float: left;
+	float: right;
 	width: 100%;
 	margin-bottom: 20px;
 	padding-bottom: 20px;
@@ -577,7 +574,7 @@ pre {
 	}
 	.fh5co-feature-icon,
 	.fh5co-feature-text {
-		float: left;
+		float: right;
 	}
 	.fh5co-feature-icon {
 		margin-right: 30px;
@@ -626,7 +623,7 @@ pre {
 		display: inline-block;
 		a {
 			display: block;
-			float: left;
+			float: right;
 			margin-right: 10px;
 			&:hover, &:active, &:focus {
 				outline: none;
@@ -645,8 +642,9 @@ pre {
 	border-top: 1px solid $brand-lighter;
 	
 	.fh5co-footer-widget {
-		float: left;
+		float: right;
 		width: 100%;
+		text-align: right;
 		&.top-level {
 			margin-top: 70px!important;
 		}
@@ -728,13 +726,13 @@ pre {
 
 .fh5co-sidebox {
 	
-	float: left;
+	float: right;
 	width: 100%;
 	.fh5co-sidebox-lead {
 		font-size: 16px;
 		letter-spacing: 1px;
 		margin-bottom: 20px;
-		float: left;
+		float: right;
 		width: 100%;
 		display: block;
 		text-transform: uppercase;
@@ -1026,7 +1024,7 @@ img {
 		}
 	}
 	&.fh5co-align-left {
-		float:left;
+		float:right;
 		margin:0 1em .5em 0;
 		@media screen and (max-width: $screen-xs) {
 			width: 100%;
@@ -1049,7 +1047,7 @@ a > img {
 		}
 	}
 	&.fh5co-align-left {
-		float: left;
+		float: right;
 		margin: 0 1em .5em 0;
 		@media screen and (max-width: $screen-xs) {
 			width: 100%;
