@@ -1,17 +1,7 @@
 @charset "UTF-8";
-@font-face {
-  font-family: 'icomoon';
-  src: url("../fonts/icomoon/icomoon.eot?srf3rx");
-  src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal; }
+
   
-  /*
-  * For displaying static text on the carousel. 
-  * Added by Daniel
-  */
-  
-  .carousel-container {
+.carousel-container {
 	position: relative;
 }
   .main-text
@@ -40,16 +30,9 @@
     background-color: #F6F0EE;
 }
 
-  
-  
-/*!
- * Bootstrap v3.3.5 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
 html {
-  font-family: sans-serif;
+  font-family: "Alef", sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; }
 
@@ -125,7 +108,6 @@ pre {
   overflow: auto; }
 
 code, kbd, pre, samp {
-  font-family: monospace, monospace;
   font-size: 1em; }
 
 button, input, optgroup, select, textarea {
@@ -1061,7 +1043,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Alef', sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
@@ -1381,9 +1363,6 @@ address {
   margin-bottom: 20px;
   font-style: normal;
   line-height: 1.42857; }
-
-code, kbd, pre, samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
 
 code {
   padding: 2px 4px;
@@ -4633,7 +4612,6 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -4739,7 +4717,6 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -4959,7 +4936,7 @@ button.close {
   width: 20px;
   height: 20px;
   line-height: 1;
-  font-family: serif; }
+  font-family: "Alef", sans-serif; }
 .carousel-control .icon-prev:before {
   content: '\2039'; }
 .carousel-control .icon-next:before {
@@ -5226,7 +5203,7 @@ button.close {
     display: none !important; } }
 /* Template Style =========== */
 body {
-  font-family: "Roboto", arial, sans-serif;
+  font-family: "Alef", sans-serif;
   font-weight: 300;
   font-size: 15px;
   line-height: 26px;
@@ -5244,7 +5221,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
-  font-family: "Montserrat", arial, sans-serif; }
+  font-family: "Alef", sans-serif; }
 
 ::-webkit-selection {
   color: #818892;
@@ -5286,8 +5263,8 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-header > .navbar li a {
   text-transform: uppercase;
   color: #000;
-  font-weight: normal;
-  font-family: "Montserrat", arial, sans-serif; }
+  font-weight: bold;
+  font-family: "Alef", sans-serif; }
 #fh5co-header > .navbar li a > span .border {
   display: block;
   height: 3px;
@@ -5337,7 +5314,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   letter-spacing: 2px;
   font-size: 20px;
-  font-family: "Montserrat", arial, sans-serif;
+  font-family: "Alef", sans-serif;
   color: #000; }
 #fh5co-header .navbar-brand:hover {
   color: #ccc; }
@@ -5405,7 +5382,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .fh5co-section-sub-lead {
   font-size: 22px;
-  font-family: "Roboto", arial, sans-serif;
+  font-family: "Alef", sans-serif;
   font-weight: 100;
   line-height: 32px; }
 
@@ -5424,7 +5401,7 @@ h1, h2, h3, h4, h5, h6 {
 .fh5co-post a {
   display: block;
   width: 100%;
-  font-family: "Montserrat", arial, sans-serif; }
+  font-family: "Alef",  sans-serif; }
 .fh5co-post a img {
   max-width: 100%;
   float: right;
@@ -5692,7 +5669,7 @@ pre {
   text-transform: uppercase;
   margin-bottom: 20px; }
 #fh5co-footer .fh5co-footer-logo {
-  font-family: "Montserrat", arial, sans-serif;
+  font-family: 'Alef', sans-serif;
   font-size: 50px;
   letter-spacing: 2px;
   color: #ccc; }
@@ -5716,7 +5693,6 @@ pre {
   margin-bottom: 10px !important;
   line-height: 20px; }
 .fh5co-list-check li:before {
-  font-family: 'icomoon';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -5943,12 +5919,12 @@ pre {
   margin-bottom: 30px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family: "Montserrat", arial, sans-serif; }
+  font-family: "Alef", sans-serif; }
 .owl-carousel-fullwidth .item .fh5co-owl-text .fh5co-sub-lead {
   font-size: 30px;
   line-height: 42px;
   font-weight: 100;
-  font-family: "Roboto", arial, sans-serif; }
+  font-family: "Alef", sans-serif; }
 
 .js .to-animate {
   opacity: 0; }
