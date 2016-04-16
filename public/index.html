@@ -1,121 +1,114 @@
-
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="he">
 	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CollAge &mdash; Colman Final Project</title>
-  <!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+		<meta charset="UTF-8">
+		<title>collAge</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href='https://fonts.googleapis.com/css?family=Alef&subset=hebrew,latin' rel='stylesheet' type='text/css'>
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+        <script src="js/angular/angular.min.js"></script>
+        <script src="js/angular/angular-route.min.js"></script>
+        <script type="text/javascript" src="../components/activity/activity.directive.js"></script>
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+		<script src="js/init.js"></script>
+        <script src="app.js"></script>
 
-	<!-- Google Webfonts -->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Alef&subset=hebrew,latin' rel='stylesheet' type='text/css'>
-
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<!-- Theme Style -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/collAge.css">
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Angularjs -->
-	<script src="js/angular/angular.min.js"></script>
-	<script src="js/angular/angular-route.min.js"></script>
-	<!-- Slick -->
-	<script src="js/slick.min.js"></script>
-	<script src="js/app.js"></script>
-	<script src="controllers/homeController.js"></script>
-	<![endif]-->
-
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
-	<body ng-app="collAgeApp">
-		
-	<header id="fh5co-header" role="banner">
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
+	<body class="landing" ng-app="collAgeApp">
 
-				<div class="navbar-header">
+		<!-- Header -->
+        <header id="header">
+            <h1><a href="index.html">CollAge</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#/main">ראשי</a></li>
+                    <li><a href="#/profile">אזור אישי</a></li>
+                    <li><a href="#/new-activity">הוסף אירוע</a></li>
+                </ul>
+            </nav>
+        </header>
 
-				<!-- Mobile Toggle Menu Button -->
-				<a class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-					<img class="logo" src="images/logo.png" width="50" height="50" />
-				<a class="navbar-brand">CollAge</a>
-				</div>
-				<div id="fh5co-navbar" class="navbar-collapse collapse" style="float:right;">
-					<ul class="nav navbar-nav navbar-right main-nav">
-						<li class="active"><a href="#/"><span>ראשי <span class="border"></span></span></a></li>
-						<li><a href="#/right"><span>אזור אישי <span class="border"></span></span></a></li>
-						<li><a href="#"><span>Left Sidebar <span class="border"></span></span></a></li>
-						<li><a href="#"><span>Elements <span class="border"></span></span></a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-	<!-- END .header -->
+		<!-- Banner -->
+        <section id="banner">
+            <h2>ברוכים הבאים ל-CollAge</h2>
+            <p>הרשת החברתית בשבילך</p>
+            <ul class="actions">
+                <li>
+                    <a href="#" class="button big">משתמש קיים</a>
+                    <a href="#" class="button big">משתמש חדש</a>
+                </li>
+            </ul>
+        </section>
 
-	<div ng-view></div>
+        <ng-view></ng-view>
 
-	<footer id="fh5co-footer">
-		
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 col-sm-12">
-					<div class="fh5co-footer-widget">
-						<h2 class="fh5co-footer-logo">Booster</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-					</div>
-					<div class="fh5co-footer-widget">
-						<ul class="fh5co-social">
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-instagram"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin"></i></a></li>
-							<li><a href="#"><i class="icon-youtube"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="row fh5co-row-padded fh5co-copyright">
-				<div class="col-md-5">
-					<p><small>&copy; Booster Free HTML5 Template. All Rights Reserved. <br>Designed by: <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> | Images by: <a href="http://deathtothestockphoto.com/" target="_blank">DeathToTheStockPhoto</a> </small></p>
-				</div>
-			</div>
-		</div>
-	</footer>
+		<!-- Footer -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <section class="4u 6u(medium) 12u$(small)">
+                        <h3>Lorem ipsum</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, cumque!</p>
+                        <ul class="alt">
+                            <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                            <li><a href="#">Quod adipisci perferendis et itaque.</a></li>
+                            <li><a href="#">Itaque eveniet ullam, veritatis reiciendis?</a></li>
+                            <li><a href="#">Accusantium repellat accusamus a, soluta.</a></li>
+                        </ul>
+                    </section>
+                    <section class="4u 6u$(medium) 12u$(small)">
+                        <h3>Nostrum, repellat!</h3>
+                        <p>Tenetur voluptate exercitationem eius tempora! Obcaecati suscipit, soluta earum blanditiis.</p>
+                        <ul class="alt">
+                            <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                            <li><a href="#">Id inventore, qui necessitatibus sunt.</a></li>
+                            <li><a href="#">Deleniti eum odit nostrum eveniet.</a></li>
+                            <li><a href="#">Illum consectetur quibusdam eos corporis.</a></li>
+                        </ul>
+                    </section>
+                    <section class="4u$ 12u$(medium) 12u$(small)">
+                        <h3>Contact Us</h3>
+                        <ul class="icons">
+                            <li><a href="#" class="icon rounded fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon rounded fa-facebook"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon rounded fa-pinterest"><span class="label">Pinterest</span></a></li>
+                            <li><a href="#" class="icon rounded fa-google-plus"><span class="label">Google+</span></a></li>
+                            <li><a href="#" class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                        </ul>
+                        <ul class="tabular">
+                            <li>
+                                <h3>Address</h3>
+                                1234 Somewhere Road<br>
+                                Nashville, TN 00000
+                            </li>
+                            <li>
+                                <h3>Mail</h3>
+                                <a href="#">someone@untitled.tld</a>
+                            </li>
+                            <li>
+                                <h3>Phone</h3>
+                                (000) 000-0000
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+                <ul class="copyright">
+                    <li>&copy; Collage of Management</li>
+                    <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+                    <li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+                </ul>
+            </div>
+        </footer>
 	</body>
 </html>

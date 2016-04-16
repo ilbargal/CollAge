@@ -1,0 +1,45 @@
+
+<!-- One -->
+<section id="one" class="wrapper style1 align-center">
+    <div class="container">
+        <header>
+            <h2>Consectetur adipisicing elit</h2>
+            <p>Lorem ipsum dolor sit amet adipisicing elit. Delectus consequatur sed tempus.</p>
+        </header>
+        <div class="row 200%">
+            <section class="4u 12u$(small)">
+                <i class="icon big rounded fa-clock-o"></i>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim quam consectetur quibusdam magni minus aut modi aliquid.</p>
+            </section>
+            <section class="4u 12u$(small)">
+                <i class="icon big rounded fa-comments"></i>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium ullam consequatur repellat debitis maxime molestiae.</p>
+            </section>
+            <section class="4u$ 12u$(small)">
+                <i class="icon big rounded fa-user"></i>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque eaque eveniet, nesciunt molestias. Ipsam, voluptate vero.</p>
+            </section>
+        </div>
+    </div>
+</section>
+
+<!-- Two -->
+<section id="two" class="wrapper style2 align-center">
+    <div class="container">
+        <header>
+            <h2>פעילויות מומלצות</h2>
+            <input type="text" placeholder="חפש..." />
+        </header>
+        <!-- Activities -->
+        <div class="row">
+            <activity ng-repeat="activity in activities" id="{{activity.id}}" title="{{activity.title}}"></activity>
+        </div>
+        <footer>
+            <ul class="actions">
+                <li>
+                    <a href="#" class="button alt big">Learn More</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</section>
