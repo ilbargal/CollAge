@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_collage" default="compile.module.collage">
+  <dirname property="module.collage.basedir" file="${ant.file.module_collage}"/>
+  
+  <property name="module.jdk.home.collage" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.collage" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.collage" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.collage" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="collage.output.dir" value="${module.collage.basedir}/out/production/CollAge"/>
+  <property name="collage.testoutput.dir" value="${module.collage.basedir}/out/test/CollAge"/>
+  
+  <path id="collage.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="collage.module.production.classpath">
+    <path refid="${module.jdk.classpath.collage}"/>
+    <path refid="library.activator-launch-1.3.7.classpath"/>
+  </path>
+  
+  <path id="collage.runtime.production.module.classpath">
+    <pathelement location="${collage.output.dir}"/>
+    <path refid="library.activator-launch-1.3.7.classpath"/>
+  </path>
+  
+  <path id="collage.module.classpath">
+    <path refid="${module.jdk.classpath.collage}"/>
+    <pathelement location="${collage.output.dir}"/>
+    <path refid="library.activator-launch-1.3.7.classpath"/>
+  </path>
+  
+  <path id="collage.runtime.module.classpath">
+    <pathelement location="${collage.testoutput.dir}"/>
+    <pathelement location="${collage.output.dir}"/>
+    <path refid="library.activator-launch-1.3.7.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.collage">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.collage">
+    <patternset refid="excluded.from.module.collage"/>
+  </patternset>
+  
+  <path id="collage.module.sourcepath">
+    <dirset dir="${module.collage.basedir}">
+      <include name="app"/>
+    </dirset>
+  </path>
+  
+  <path id="collage.module.test.sourcepath">
+    <dirset dir="${module.collage.basedir}">
+      <include name="test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.collage" depends="compile.module.collage.production,compile.module.collage.tests" description="Compile module CollAge"/>
+  
+  <target name="compile.module.collage.production" depends="register.custom.compilers" description="Compile module CollAge; production classes">
+    <mkdir dir="${collage.output.dir}"/>
+    <javac2 destdir="${collage.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.collage}/javac">
+      <compilerarg line="${compiler.args.collage}"/>
+      <bootclasspath refid="collage.module.bootclasspath"/>
+      <classpath refid="collage.module.production.classpath"/>
+      <src refid="collage.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.collage"/>
+    </javac2>
+    
+    <copy todir="${collage.output.dir}">
+      <fileset dir="${module.collage.basedir}/app">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.collage.tests" depends="register.custom.compilers,compile.module.collage.production" description="compile module CollAge; test classes" unless="skip.tests">
+    <mkdir dir="${collage.testoutput.dir}"/>
+    <javac2 destdir="${collage.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.collage}/javac">
+      <compilerarg line="${compiler.args.collage}"/>
+      <bootclasspath refid="collage.module.bootclasspath"/>
+      <classpath refid="collage.module.classpath"/>
+      <src refid="collage.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.collage"/>
+    </javac2>
+    
+    <copy todir="${collage.testoutput.dir}">
+      <fileset dir="${module.collage.basedir}/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.collage" description="cleanup module">
+    <delete dir="${collage.output.dir}"/>
+    <delete dir="${collage.testoutput.dir}"/>
+  </target>
+</project>
