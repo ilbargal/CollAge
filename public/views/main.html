@@ -1,4 +1,3 @@
-
 <!-- One -->
 <section id="one" class="wrapper style1 align-center">
     <div class="container">
@@ -28,11 +27,12 @@
     <div class="container">
         <header>
             <h2>פעילויות מומלצות</h2>
-            <input type="text" placeholder="חפש..." />
+            <input type="text" style="text-align:right;" ng-model="filterActivities.title" placeholder="...חפש" />
         </header>
         <!-- Activities -->
         <div class="row">
-            <activity ng-repeat="activity in activities" id="{{activity.id}}" title="{{activity.title}}"></activity>
+            <event-preview ng-repeat="activity in activities | filter: filterActivities" id="{{activity.id}}" title="{{activity.title}}"></event-preview>
+            <h2 ng-show="!(activities| filter:filterActivities).length">לא נמצאו פעילויות המכילות "{{filterActivities.title}}"</h2>
         </div>
         <footer>
             <ul class="actions">

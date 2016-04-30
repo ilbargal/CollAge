@@ -1,22 +1,41 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" ng-app="collAgeApp">
 	<head>
-		<meta charset="UTF-8">
 		<title>collAge</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<link href='https://fonts.googleapis.com/css?family=Alef&subset=hebrew,latin' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
+
+        <script type="text/javascript" src="js/hello.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="js/google/gmap/gmaps.core.js"></script>
+        <script src="js/google/gmap/gmaps.markers.js"></script>
+
         <script src="js/angular/angular.min.js"></script>
         <script src="js/angular/angular-route.min.js"></script>
+
         <script type="text/javascript" src="../components/activity/activity.directive.js"></script>
 
-		<script src="js/init.js"></script>
+        <!-- We use client cookies to save the user credentials -->
+        <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
+
+        <!-- Auth0 Lock script and AngularJS module -->
+        <script src="//cdn.auth0.com/js/lock-9.1.min.js"></script>
+        <!-- angular-jwt and angular-storage -->
+        <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
+        <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+        <script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
+
         <script src="app.js"></script>
+		<script src="js/init.js"></script>
+
+        <script src="../components/auth.js"></script>
 
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
@@ -25,15 +44,22 @@
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
-	<body class="landing" ng-app="collAgeApp">
+	<body class="landing" ng-controller="mainController as mainCtrl">
 
 		<!-- Header -->
         <header id="header">
-            <h1><a href="index.html">CollAge</a></h1>
-            <nav id="nav">
+            <nav id="navRight" class="6u$">
+                <ul>
+                    <li><img src="images/logo.png" class="logo" width="50" height="50" /></li>
+                    <li><h1><a href="#/main">CollAge</a></h1></li>
+                    <li ng-if="auth.profile.picture"><i class="icon big rounded fa-clock-o"><img ng-src="{{auth.profile.picture}}" style="border-radius:30px" /></i></li>
+                    <li ng-if="auth.profile.name"><h1>שלום {{auth.profile.nickname}}</h1></li>
+                </ul>
+            </nav>
+            <nav id="navLeft">
                 <ul>
                     <li><a href="#/main">ראשי</a></li>
-                    <li><a href="#/profile">אזור אישי</a></li>
+                    <li><a href="#/profile" ng-if="auth.isAuthenticated">אזור אישי</a></li>
                     <li><a href="#/new-activity">הוסף אירוע</a></li>
                 </ul>
             </nav>
@@ -45,7 +71,7 @@
             <p>הרשת החברתית בשבילך</p>
             <ul class="actions">
                 <li>
-                    <a href="#" class="button big">משתמש קיים</a>
+                    <a ng-click="signin()" class="button big">משתמש קיים</a>
                     <a href="#" class="button big">משתמש חדש</a>
                 </li>
             </ul>
@@ -78,7 +104,7 @@
                         </ul>
                     </section>
                     <section class="4u$ 12u$(medium) 12u$(small)">
-                        <h3>Contact Us</h3>
+                        <h3>פנו אלינו</h3>
                         <ul class="icons">
                             <li><a href="#" class="icon rounded fa-twitter"><span class="label">Twitter</span></a></li>
                             <li><a href="#" class="icon rounded fa-facebook"><span class="label">Facebook</span></a></li>
@@ -88,25 +114,19 @@
                         </ul>
                         <ul class="tabular">
                             <li>
-                                <h3>Address</h3>
-                                1234 Somewhere Road<br>
-                                Nashville, TN 00000
+                                <h3>דוא"ל</h3>
+                                <a href="mailto:collAge@colman.ac.il?Subject=Hello%20again" target="_top">collAge@colman.ac.il</a>
                             </li>
                             <li>
-                                <h3>Mail</h3>
-                                <a href="#">someone@untitled.tld</a>
-                            </li>
-                            <li>
-                                <h3>Phone</h3>
+                                <h3>טלפון</h3>
                                 (000) 000-0000
                             </li>
                         </ul>
                     </section>
                 </div>
                 <ul class="copyright">
-                    <li>&copy; Collage of Management</li>
+                    <li>&copy; <a href="http://www.colman.ac.il">Collage of Management</a></li>
                     <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
-                    <li>Images: <a href="http://unsplash.com">Unsplash</a></li>
                 </ul>
             </div>
         </footer>

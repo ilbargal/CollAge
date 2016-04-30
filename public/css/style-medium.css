@@ -86,6 +86,7 @@
 
 					#navPanel nav ul li:first-child a:not(.button), #navPanel nav ul li:first-child span:not(.button) {
 						border-top: 0;
+						margin-right: 0;
 					}
 
 					#navPanel nav ul li a:not(.button), #navPanel nav ul li span:not(.button) {
