@@ -1,0 +1,25 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.min.js"></script>
+<link href="../js/fullcalendar-2.7.1/fullcalendar.css" rel="stylesheet"/>
+
+<section dir="rtl" id="two" class="wrapper style2 align-center">
+    <div class="container">
+		<div style="float:right;width:70%">
+			לוח שנה
+
+			<div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
+
+		</div>
+		<div style="float:right;width:30%">
+			<header>
+				<h2>
+					פעילויות שנרשמתי אליהן
+				</h2>
+			</header>
+			<div class="row">
+				<event-preview ng-repeat="activity in activities | filter: filterActivities" id="{{activity.id}}" title="{{activity.title}}"></event-preview>
+				<h2 ng-show="!(activities| filter:filterActivities).length">לא נמצאו פעילויות המכילות "{{filterActivities.title}}"</h2>
+			</div>
+		</div>
+		h
+    </div>
+</section>

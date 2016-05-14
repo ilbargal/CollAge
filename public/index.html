@@ -6,7 +6,7 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<link href='https://fonts.googleapis.com/css?family=Alef&subset=hebrew,latin' rel='stylesheet' type='text/css'>
+
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
@@ -17,8 +17,18 @@
         <script src="js/google/gmap/gmaps.core.js"></script>
         <script src="js/google/gmap/gmaps.markers.js"></script>
 
+
+        <link src='../js/fullcalendar-2.7.1/fullcalendar.print.css' rel='stylesheet' media='print' />
+
         <script src="js/angular/angular.min.js"></script>
         <script src="js/angular/angular-route.min.js"></script>
+
+        <!-- Calendar.ui -->
+        <link src='../js/fullcalendar-2.7.1/fullcalendar.css' rel='stylesheet' />
+
+        <script src='../js/fullcalendar-2.7.1/lib/moment.min.js'></script>
+        <script src='../js/fullcalendar-2.7.1/fullcalendar.min.js'></script>
+        <script src='../js/fullcalendar-2.7.1/gcal.js'></script>
 
         <script type="text/javascript" src="../components/activity/activity.directive.js"></script>
 
@@ -32,17 +42,17 @@
         <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
         <script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
 
+
+        <script src='../js/calendar.js'></script>
+
+
         <script src="app.js"></script>
 		<script src="js/init.js"></script>
 
         <script src="../components/auth.js"></script>
 
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+
+
 	</head>
 	<body class="landing" ng-controller="mainController as mainCtrl">
 
