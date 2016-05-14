@@ -3,23 +3,24 @@
 
 <section dir="rtl" id="two" class="wrapper style2 align-center">
     <div class="container">
-		<div style="float:right;width:70%">
-			לוח שנה
-
+		<div style="float:right;width:55%;padding-left:30px">
+			<h2>
+				לוח שנה
+			</h2>
 			<div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
 
 		</div>
-		<div style="float:right;width:30%">
+		<div style="float:right;width:45%">
 			<header>
 				<h2>
 					פעילויות שנרשמתי אליהן
 				</h2>
 			</header>
-			<div class="row">
+			<div class="">
 				<event-preview ng-repeat="activity in activities | filter: filterActivities" id="{{activity.id}}" title="{{activity.title}}"></event-preview>
 				<h2 ng-show="!(activities| filter:filterActivities).length">לא נמצאו פעילויות המכילות "{{filterActivities.title}}"</h2>
 			</div>
 		</div>
-		h
+		<div>.</div>
     </div>
 </section>
