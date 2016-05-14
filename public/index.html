@@ -74,6 +74,7 @@
                     <li><a href="#/main">ראשי</a></li>
                     <li><a href="#/profile" ng-if="auth.isAuthenticated">אזור אישי</a></li>
                     <li><a href="#/new-activity">הוסף אירוע</a></li>
+                    <li><a href="#/main" ng-click="signout()" ng-if="auth.isAuthenticated">התנתק</a></li>
                 </ul>
             </nav>
         </header>
@@ -84,8 +85,8 @@
             <p>הרשת החברתית בשבילך</p>
             <ul class="actions">
                 <li>
-                    <a ng-click="signin()" class="button big">משתמש קיים</a>
-                    <a href="#" class="button big">משתמש חדש</a>
+                    <a ng-click="signin()" ng-if="!auth.isAuthenticated" class="button big">משתמש קיים</a>
+                    <a href="#" ng-if="!auth.isAuthenticated" class="button big">משתמש חדש</a>
                 </li>
             </ul>
         </section>
