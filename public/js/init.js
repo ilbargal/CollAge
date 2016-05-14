@@ -95,6 +95,6 @@
       facebook : '1183068808406821',
       google   : '12345'
     },{
-      redirect_uri : '/'
+      redirect_uri : '/main'
     })
 })(jQuery);
