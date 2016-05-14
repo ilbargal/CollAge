@@ -13,7 +13,7 @@
                 start: new Date(y, m, d - 5),
                 end: new Date(y, m, d - 2),
                 location: 'רמת גן',
-                imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Left_side_of_Flying_Pigeon.jpg'
+                imageSrc: '../images/bicycle.jpg'
             },
             {
                 id:2,
