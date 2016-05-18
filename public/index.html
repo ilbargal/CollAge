@@ -61,14 +61,14 @@
                 <ul>
                     <li><img src="images/logo.png" class="logo" width="50" height="50" /></li>
                     <li><h1><a href="#/main">CollAge</a></h1></li>
-                    <li ng-if="auth.profile.picture"><i class="icon big rounded fa-clock-o"><img ng-src="{{auth.profile.picture}}" style="border-radius:30px" /></i></li>
+                    <li ng-if="auth.profile.picture"><i class="icon big rounded"><img ng-src="{{auth.profile.picture}}" style="border-radius:30px" /></i></li>
                     <li ng-if="auth.profile.name"><h1>שלום {{auth.profile.name}}</h1></li>
                 </ul>
             </nav>
             <nav id="navLeft">
                 <ul>
                     <li><a href="#/main">ראשי</a></li>
-                    <li><a href="#/profile" ng-if="auth.isAuthenticated">אזור אישי</a></li>
+                    <li><a href="#/profile" ng-if="auth.isAuthenticated"><i class="icon-inbox"> אזור אישי</i></a></li>
                     <li><a href="#/new-activity">הוסף אירוע</a></li>
                     <li><a href="#/main" ng-click="signout()" ng-if="auth.isAuthenticated">התנתק</a></li>
                 </ul>
@@ -81,8 +81,9 @@
             <p>הרשת החברתית בשבילך</p>
             <ul class="actions">
                 <li>
-                    <a ng-click="signin()" ng-if="!auth.isAuthenticated" class="button big">משתמש קיים</a>
-                    <a href="#" ng-if="!auth.isAuthenticated" class="button big">משתמש חדש</a>
+                    <a ng-click="signin()" ng-if="!auth.isAuthenticated" class="button big"><span class="icon-login"></span> משתמש קיים</a>
+                    <a href="#" ng-if="!auth.isAuthenticated" class="button big"><span> משתמש חדש</span></a>
+                    <a href="#/calendar" ng-if="auth.isAuthenticated" class="button big">ללוח השנה שלי</a>
                 </li>
             </ul>
         </section>
@@ -107,7 +108,7 @@
                             </li>
                             <li>
                                 <h3>טלפון</h3>
-                                (+972) 03-1234567
+                                03-1234567(972+)
                             </li>
                         </ul>
                     </section>

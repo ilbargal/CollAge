@@ -2,7 +2,7 @@
 @import url("icomoon.css");
 
 @font-face {
-  font-family: 'Alef Hebrew';
+  font-family: 'Alef';
   font-style: normal;
   font-weight: 400;
   src: url(//fonts.gstatic.com/ea/alefhebrew/v4/Alef-Regular.eot);
@@ -33,7 +33,7 @@
 			content: "";
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
+			font-family: 'icomoon';
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;
@@ -334,7 +334,7 @@
 			input[type="radio"] + label:before {
 				-moz-osx-font-smoothing: grayscale;
 				-webkit-font-smoothing: antialiased;
-				font-family: FontAwesome;
+				font-family: 'icomoon';
 				font-style: normal;
 				font-weight: normal;
 				text-transform: none !important;
@@ -435,7 +435,7 @@
 		.icon:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
+			font-family: 'icomoon';
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;
