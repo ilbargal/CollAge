@@ -1,9 +1,8 @@
-<section class="feature 4u 12u$(small)">
+<section class="feature 4u 12u$(small)" dir="rtl">
     <img class="image fit" ng-src="{{imagePath}}" height="160em" alt="" />
     <h3 class="title">{{title}}</h3>
     <div class="row">
-        <p>{{start}} <span class="icon big icon-clock2"></span></p>
-        <p>{{location}} <span class="icon big icon-location-pin"></span></p>
+        <p>{{start | date:'medium'}} <span class="icon big icon-clock2"></span></p>
         <p><a href="#/event/{{id}}">פרטים נוספים</a> <i class="icon big icon-location-pin"></i></p>
     </div>
 </section>
