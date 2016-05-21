@@ -1165,3 +1165,38 @@
         background-color: rgba(255, 70, 0, 0.98);
         border: 1px solid rgba(255, 70, 0, 0.98) !important;
     }
+
+.event-card-gradient {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    position: absolute;
+    background-image: linear-gradient(rgba(15,20,31,0) 0,rgba(15,20,31,.1) 25%,rgba(15,20,31,.8) 100%);
+}
+
+.event-card {
+    color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;;
+    height: 300px;
+    position: relative;
+}
+    .event-card .details {
+        bottom: 0.2em;
+        right: 0.5em;
+        position: absolute;
+    }
+    .event-card h3 {
+        color: #ffffff;
+    }
+
+    .event-card h3, .event-card h4, .event-card h5, .event-card h6 {
+        color: #ffffff;
+        margin: 0 0 0 0;
+    }
+
+    .event-card .view-more {
+        bottom: 0.2em;
+        left: 0.5em;
+        position: absolute;
+    }

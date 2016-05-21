@@ -1,5 +1,6 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
@@ -33,6 +34,7 @@ public class User {
     private String phone;
     @Column(name="BIRTHDATE")
     private String birthday;
+    @JsonIgnore
     @Column(name="PASSWORD")
     private String password;
 
