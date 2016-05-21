@@ -20,17 +20,17 @@ public class Event {
     @GeneratedValue(strategy= GenerationType.SEQUENCE)
     public int id;
     @NotNull
-    @Column(name="NAME")
-    public String name;
+    @Column(name="TITLE")
+    public String title;
     @Column(name="DESCRIPTION")
     public String description;
     @Column(name="LOCATION")
     public Point location;
     @Column(name="STARTDATE")
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy HH:mm")
+    //@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy HH:mm")
     public Date start;
     @Column(name="ENDDATE")
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy HH:mm")
+    //@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy HH:mm")
     public Date end;
     @Column(name="IMAGE")
     public String imagePath;
@@ -44,11 +44,11 @@ public class Event {
     }
 
     public String getName() {
-        return name;
+        return title;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.title = name;
     }
 
     public String getDescription() {
@@ -68,9 +68,9 @@ public class Event {
     }
 
 
-    public Event(int id, String name, String description, Point location, Date start, Date end, String imagePath) {
+    public Event(int id, String title, String description, Point location, Date start, Date end, String imagePath) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.description = description;
         this.location = location;
         this.start = start;
