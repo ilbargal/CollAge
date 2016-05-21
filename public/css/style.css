@@ -510,13 +510,14 @@
 		}
 
 	ul {
-		list-style: disc;
+		list-style: none;
 		margin: 0 0 2em 0;
 		padding-left: 1em;
 	}
 
 		ul li {
 			padding-left: 0.5em;
+			display: inline;
 		}
 
 		ul.alt {
@@ -1199,4 +1200,14 @@
         bottom: 0.2em;
         left: 0.5em;
         position: absolute;
+    }
+
+.event-more-information div {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 1.2em;
+}
+    .event-more-information div img {
+        width: 100%;
+        height: 100%;
     }
