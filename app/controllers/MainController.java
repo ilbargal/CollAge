@@ -1,46 +1,35 @@
 package controllers;
 
+import bl.UserManagementBL;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import common.Utils;
 import models.Event;
+import models.User;
 import play.mvc.Controller;
 import play.mvc.Result;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class MainController  extends Controller {
-    ObjectMapper mapper = new ObjectMapper();
-    ArrayList<Event> events = new ArrayList<Event>();
 
-    public Result getAllEvents() throws JsonProcessingException {
-        getEvents();
-        // TODO : get real events from DB
-        return ok(mapper.writeValueAsString(events));
+    public Result login(String email, String password) throws JsonProcessingException {
+        User currUser = UserManagementBL.getInstance().getUser(email, password);
+
+        if (Objects.nonNull(currUser))
+            return ok(Utils.convertObjectToJsonString(currUser));
+        else return internalServerError("No user exists");
     }
 
-    public Result getEventByID(String id) throws JsonProcessingException {
-        getEvents();
-        for (Event currEvent: events) {
-            if (String.valueOf(currEvent.id).equals(id)) {
-                return ok (mapper.writeValueAsString(currEvent));
-            }
-        }
+    public Result register(String email, String password) throws JsonProcessingException {
+        User currUser = new User();
+        currUser.setId(email);
+        currUser.setPassword(password);
 
-        return ok(id);
-    }
-
-    // TODO: delete it!!!
-    private void getEvents() {
-        Date currDate = new Date();
-        int d = currDate.getDate();
-        int m = currDate.getMonth();
-        int y = currDate.getYear();
-        if (events.isEmpty()) {
-            events.add(new Event(1,"רכיבה על אופניים", "רכיבה שווה על אופניים. מומלצת לבעלי כושר גופני גבוה", new Point(35, 32), new Date(y, m, d - 5), new Date(y, m, d - 2), "https://upload.wikimedia.org/wikipedia/commons/4/41/Left_side_of_Flying_Pigeon.jpg"));
-            events.add(new Event(2,"שחייה צורנית", "שחיה בספורטן העירוני בשלל צורות מעניינות. דרושים משתתפים רבים", new Point(35, 32), new Date(y, m, d - 5), new Date(y, m, d - 2), "http://images.mouse.co.il/storage/8/f/490_fake_gay.jpg"));
-            events.add(new Event(3,"ארוחת צהריים בארומה", "פגישה לקפה ומאפה בסניף הוד השרון", new Point(35, 32), new Date(y, m, d - 5), new Date(y, m, d - 2), "http://www.aroma.co.il/_media/images/general/logo.png"));
-        }
+        UserManagementBL.getInstance().insertUser(currUser);
+        return ok(Utils.convertObjectToJsonString(currUser));
     }
 }
