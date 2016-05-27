@@ -1,18 +1,8 @@
 package controllers;
-import bl.EventBL;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import common.Utils;
-import models.Event;
-import models.EventsEntity;
-import play.db.jpa.JPA;
+
 import play.mvc.Controller;
 import play.mvc.Result;
-
-
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class ActivitiesController extends Controller {
 

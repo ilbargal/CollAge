@@ -1,18 +1,16 @@
 package controllers;
 
-import bl.UserManagementBL;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import common.DataBaseHandler;
 import common.Utils;
-import models.Event;
-import models.User;
+import models.Users;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Objects;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import java.util.List;
 
 public class MainController  extends Controller {
 
@@ -32,6 +30,12 @@ public class MainController  extends Controller {
 //
 //        UserManagementBL.getInstance().insertUser(currUser);
 //        return ok(Utils.convertObjectToJsonString(currUser));
+        return ok();
+    }
+
+    public Result getUsers () throws JsonProcessingException {
+        List<Users> users = DataBaseHandler.getInstance().query("findAllUsers");
+        System.out.println(Utils.convertObjectToJsonString(users));
         return ok();
     }
 }
