@@ -5,23 +5,23 @@
 
     <persistence-unit name="collageUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <non-jta-data-source>DefaultDS</non-jta-data-source>
-        <class>models.EventsEntity</class>
+       <!-- <non-jta-data-source>DefaultDS</non-jta-data-source>-->
+        <class>models.CatagoriesToEvent</class>
+        <class>models.Categories</class>
+        <class>models.Events</class>
+        <class>models.EventsStatus</class>
+        <class>models.Friends</class>
+        <class>models.Jobs</class>
+        <class>models.Users</class>
+        <class>models.UsersToCategories</class>
+        <class>models.UsersToEvents</class>
         <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <!--<property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/collage"/>-->
-            <!--<property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>-->
-            <!--<property name="toplink.jdbc.user" value="root"/>-->
-            <!--<property name="toplink.jdbc.password" value="bargal"/>-->
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/collage"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="bargal"/>
-            <!--<property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/collage"/>-->
-            <!--<property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>-->
-            <!--<property name="openjpa.ConnectionUserName" value="root"/>-->
-            <!--<property name="openjpa.ConnectionPassword" value="bargal"/>-->
+            <property name="hibernate.connection.password" value="1234"/>
         </properties>
     </persistence-unit>
 

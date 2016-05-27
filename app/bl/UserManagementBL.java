@@ -1,7 +1,5 @@
 package bl;
-
-import models.User;
-
+import models.Users;
 public class UserManagementBL {
     private static UserManagementBL _instance;
 
@@ -19,7 +17,7 @@ public class UserManagementBL {
         return _instance;
     }
 
-    public User getUser(String email, String password) {
+    public Users getUser(String email, String password) {
         // TODO: get user from DB
         return null;
     }
@@ -29,11 +27,11 @@ public class UserManagementBL {
         return false;
     }
 
-    public void insertUser(User myUser) {
+    public void insertUser(Users myUser) {
         // TODO: insert to DB
     }
 
-    public void updateUser(User myUser) {
+    public void updateUser(Users myUser) {
         // TODO: insert to DB
     }
 }

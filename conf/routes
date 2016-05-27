@@ -6,6 +6,7 @@
 GET     /                               controllers.Assets.at(path="/public", file="index.html")
 GET     /getAllEvents                   controllers.ActivitiesController.getAllActivities()
 GET     /getEvent/:id                   controllers.ActivitiesController.getActivity(id: String)
+GET     /getUsers                       controllers.MainController.getUsers()
 #POST    /person                        controllers.Application.addPerson()
 #GET     /persons                       controllers.Application.getPersons
 
