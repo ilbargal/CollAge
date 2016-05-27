@@ -30,5 +30,25 @@ public class DataBaseHandler {
         em.close();
         return list;
     }
+
+    public <T> T singleQueryById(String qry, String propName,  Object id) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("collageUnit");
+        EntityManager em = emf.createEntityManager();
+
+        T obj= (T)em.createNamedQuery(qry).setParameter(propName, id).getSingleResult();
+
+        em.close();
+        return obj;
+    }
+
+    public <T> void Persist(T obj) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("collageUnit");
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        em.persist(obj);
+        em.getTransaction().commit();
+        em.close();
+    }
 }
 

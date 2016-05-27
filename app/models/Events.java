@@ -1,15 +1,16 @@
 package models;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
  * Created by Gal on 27-May-16.
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name="findEventById", query="SELECT e from Events e where e.id = :evtId"),
+    @NamedQuery(name="findAllEvents", query="SELECT e from Events e"),
+})
 public class Events {
     private Integer id;
     private String name;

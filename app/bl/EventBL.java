@@ -1,6 +1,11 @@
 package bl;
 
+import ch.qos.logback.classic.db.DBHelper;
+import common.DataBaseHandler;
+import models.Events;
+
 import java.awt.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class EventBL {
@@ -20,19 +25,23 @@ public class EventBL {
         return _instance;
     }
 
-    public List<Event>  getAllEvents() {
-        // TODO: get from DB and return
-//        ArrayList<Event> events = new ArrayList<Event>();
-//        Date currDate = new Date();
-//        int d = currDate.getDate();
-//        int m = currDate.getMonth();
-//        int y = currDate.getYear();
-//        if (events.isEmpty()) {
-//            events.add(new Event(1,"רכיבה על אופניים", "רכיבה שווה על אופניים. מומלצת לבעלי כושר גופני גבוה", new Point(35, 32), new Date(y, m, d - 5), new Date(y, m, d - 2), "https://upload.wikimedia.org/wikipedia/commons/4/41/Left_side_of_Flying_Pigeon.jpg"));
-//            events.add(new Event(2,"שחייה צורנית", "שחיה בספורטן העירוני בשלל צורות מעניינות. דרושים משתתפים רבים", new Point(35, 32), new Date(y, m, d - 5), new Date(y, m, d - 2), "http://images.mouse.co.il/storage/8/f/490_fake_gay.jpg"));
-//            events.add(new Event(3,"ארוחת צהריים בארומה", "פגישה לקפה ומאפה בסניף הוד השרון", new Point(35, 32), new Date(y, m, d - 5), new Date(y, m, d - 2), "http://www.aroma.co.il/_media/images/general/logo.png"));
-//        }
-//        return events;
-        return null;
+    public List<Events>  getAllEvents() {
+        return DataBaseHandler.getInstance().query("findAllEvents");
+    }
+
+    public Events getEventById(Integer id) {
+        return DataBaseHandler.getInstance().singleQueryById("findEventById", "evtId", Integer.valueOf(id));
+    }
+
+    public void addEvent() {
+        Events evt = new Events();
+        evt.setId(2);
+        evt.setName("מסיבת חטיפים");
+        evt.setLocation("הוד השרון");
+        evt.setStatus(1);
+        evt.setOwner("ilbargal@gmail.com");
+        evt.setDescription("שווה בטירוף");
+        evt.setDatetime(new Timestamp(-900, 4, 15, 00, 00, 00, 00));
+        DataBaseHandler.getInstance().Persist(evt);
     }
 }
