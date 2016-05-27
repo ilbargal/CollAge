@@ -84,6 +84,7 @@
 		text-decoration: underline;
 	}
 
+
 		a:hover {
 			text-decoration: none;
 		}
@@ -1167,13 +1168,38 @@
         border: 1px solid rgba(255, 70, 0, 0.98) !important;
     }
 
+
+
 .event-card-gradient {
     width: 100%;
     height: 100%;
+    border-radius: 40px;
     background-color: transparent;
     position: absolute;
     background-image: linear-gradient(rgba(15,20,31,0) 0,rgba(15,20,31,.1) 25%,rgba(15,20,31,.8) 100%);
 }
+
+    .star-rating {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+    }
+    .star {
+        padding: 1px;
+        color: #ddd;
+        font-size: 20px;
+        text-shadow: .05em .05em #aaa;
+        list-style-type: none;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .star.filled {
+        color: #fd0;
+    }
+
+    .star.readonly .star.filled {
+         color: #666;
+     }
 
 .event-card {
     color: #ffffff;
@@ -1181,6 +1207,7 @@
     background-size: 100% 100%;;
     height: 300px;
     position: relative;
+    border-radius: 40px;
 }
     .event-card .details {
         bottom: 0.2em;
@@ -1211,3 +1238,5 @@
         width: 100%;
         height: 100%;
     }
+
+.angular-google-map-container { height: 400px; }

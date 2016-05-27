@@ -13,12 +13,8 @@
 		<script src="js/skel-layers.min.js"></script>
 
         <script type="text/javascript" src="js/hello.js"></script>
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script src="js/google/gmap/gmaps.core.js"></script>
-        <script src="js/google/gmap/gmaps.markers.js"></script>
-
-
         <link src='../js/fullcalendar-2.7.1/fullcalendar.print.css' rel='stylesheet' media='print' />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
         <script src="js/angular/angular.min.js"></script>
         <script src="js/angular/angular-route.min.js"></script>
@@ -30,6 +26,7 @@
         <script src='../js/fullcalendar-2.7.1/fullcalendar.min.js'></script>
         <script src='../js/fullcalendar-2.7.1/gcal.js'></script>
 
+        <script type="text/javascript" src="../components/ratingStars/rating.directive.js"></script>
         <script type="text/javascript" src="../components/activity/activity.directive.js"></script>
 
         <!-- We use client cookies to save the user credentials -->
@@ -41,7 +38,6 @@
         <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
         <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
         <script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
-
 
         <script src='../js/calendar.js'></script>
 
@@ -68,26 +64,13 @@
             <nav id="navLeft">
                 <ul>
                     <li><a href="#/main">ראשי</a></li>
-                    <li><a href="#/profile" ng-if="auth.isAuthenticated"><i class="icon-inbox"> אזור אישי</i></a></li>
-                    <li><a href="#/new-activity">הוסף אירוע</a></li>
-                    <li><a href="#/calendar">הלוח שלי</a></li>
-                    <li><a href="#/main" ng-click="signout()" ng-if="auth.isAuthenticated">התנתק</a></li>
+                    <li><a href="#/profile" ng-if="auth.isAuthenticated"><i class="fa fa-user"></i> אזור אישי</a></li>
+                    <li><a href="#/new-activity" ng-if="auth.isAuthenticated"><i class="icon-circle-with-plus"></i> הוסף אירוע</a></li>
+                    <li><a href="#/calendar" ng-if="auth.isAuthenticated"><i class="icon-calendar"></i> הלוח שלי</a></li>
+                    <li><a href="#/main" ng-click="signout()" ng-if="auth.isAuthenticated"><i class="fa fa-sign-out"></i> התנתק</a></li>
                 </ul>
             </nav>
         </header>
-
-		<!-- Banner -->
-        <section id="banner">
-            <h2>ברוכים הבאים ל-CollAge</h2>
-            <p>הרשת החברתית בשבילך</p>
-            <ul class="actions">
-                <li>
-                    <a ng-click="signin()" ng-if="!auth.isAuthenticated" class="button big"><span class="icon-login"></span> משתמש קיים</a>
-                    <a href="#" ng-if="!auth.isAuthenticated" class="button big"><span> משתמש חדש</span></a>
-                    <a href="#/calendar" ng-if="auth.isAuthenticated" class="button big">ללוח השנה שלי</a>
-                </li>
-            </ul>
-        </section>
 
         <ng-view></ng-view>
 

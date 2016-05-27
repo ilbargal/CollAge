@@ -1,3 +1,16 @@
+<!-- Banner -->
+<section id="banner">
+    <h2>ברוכים הבאים ל-CollAge</h2>
+    <p>הרשת החברתית בשבילך</p>
+    <ul class="actions">
+        <li>
+            <a ng-click="signin()" ng-if="!auth.isAuthenticated" class="button big"><span class="icon-login"></span> משתמש קיים</a>
+            <a href="#" ng-if="!auth.isAuthenticated" class="button big"><span> משתמש חדש</span></a>
+            <a href="#/calendar" ng-if="auth.isAuthenticated" class="button big">ללוח השנה שלי</a>
+        </li>
+    </ul>
+</section>
+
 <!-- One -->
 <section id="one" class="wrapper style1 align-center">
     <div class="container">
@@ -23,7 +36,7 @@
         <!-- Activities -->
         <div class="row">
             <event-preview ng-repeat="activity in activities | filter: filterActivities" ng-model="activity" id="{{activity.id}}" title="{{activity.name}}"></event-preview>
-            <h2 ng-show="!(activities| filter:filterActivities).length">לא נמצאו פעילויות המכילות "{{filterActivities.name}}"</h2>
+            <h2 ng-show="!(activities| filter:filterActivities).length">לא נמצאו פעילויות המכילות "{{filterActivities.title}}"</h2>
         </div>
         <footer>
             <ul class="actions">

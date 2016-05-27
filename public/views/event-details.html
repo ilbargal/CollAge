@@ -1,4 +1,4 @@
-<section id="one" class="wrapper style3 align-center">
+<section id="one" class="wrapper align-center">
     <div class="container">
         <div class="row uniform 50%">
             <div class="6u 12u$(small)">
@@ -6,6 +6,11 @@
                 <p class="align-right">{{event.start}} <span class="icon big icon-clock2" style="float:right;"></span></p>
                 <p class="align-right">{{event.location}} <span class="icon big icon-location-pin" style="float:right;"></span></p>
                 <p class="align-right">על האירוע: {{event.description}}</p>
+
+                <div ng-controller="RatingController as rating">
+                    <div star-rating ng-model="rating.rating1" max="10" on-rating-select="rating.rateFunction(rating)"></div>
+                    <star-rating ng-model="rating.rating2" readonly="rating.isReadonly"></star-rating>
+                </div>
 
                 <div class="row">
                     <p class="align-right">משתתפים: </p>
@@ -22,14 +27,13 @@
                 <div class="12u 6u$(small)">
                     <img src="{{event.imagePath}}" />
                 </div>
-                <div id="map" class="12u 6u$(small)" style="height: 150px;"></div>
             </div>
         </div>
         <!-- Status bar -->
         <div class="row uniform 50%">
             <div class="container">
 
-                <i class="icon big rounded fa-user event-status status-ok" ng-click="changeEventStatus('ok')"></i>
+                <i class="icon big rounded fa-user event-status status-ok" ng-click="changeEventStatus('ok')">vv</i>
                 <i class="icon big rounded fa-user event-status status-maybe" ng-click="changeEventStatus('maybe')"></i>
                 <i class="icon big rounded fa-user event-status status-decline" ng-click="changeEventStatus('decline')"></i>
             </div>
