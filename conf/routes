@@ -7,6 +7,7 @@ GET     /                               controllers.Assets.at(path="/public", fi
 GET     /getAllEvents                   controllers.ActivitiesController.getAllActivities()
 GET     /getEvent/:id                   controllers.ActivitiesController.getActivity(id: String)
 GET     /getUsers                       controllers.MainController.getUsers()
+POST    /addActivity                    controllers.ActivitiesController.addActivity()
 #POST    /person                        controllers.Application.addPerson()
 #GET     /persons                       controllers.Application.getPersons
 

@@ -27,4 +27,9 @@ public class ActivitiesController extends Controller {
 
         return ok(Utils.convertObjectToJsonString(evt));
     }
+
+    public Result addActivity() {
+        System.out.println(request().body().asJson().toString());
+        return ok();
+    }
 }
