@@ -1,16 +1,18 @@
 package bl;
+import common.DataBaseHandler;
 import models.Users;
-public class UserManagementBL {
-    private static UserManagementBL _instance;
 
-    private UserManagementBL() {
+public class UserBL {
+    private static UserBL _instance;
+
+    private UserBL() {
     }
 
-    public static UserManagementBL getInstance() {
+    public static UserBL getInstance() {
         if (_instance == null) {
-            synchronized (UserManagementBL.class) {
+            synchronized (UserBL.class) {
                 if (_instance == null) {
-                    _instance = new UserManagementBL();
+                    _instance = new UserBL();
                 }
             }
         }
@@ -27,8 +29,13 @@ public class UserManagementBL {
         return false;
     }
 
+    public boolean checkUserValidation (Users usr) {
+        return false;
+    }
+
     public void insertUser(Users myUser) {
-        // TODO: insert to DB
+
+        DataBaseHandler.getInstance().Persist(myUser);
     }
 
     public void updateUser(Users myUser) {
