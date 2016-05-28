@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Created by Gal on 27-May-16.
  */
 @Entity
-@Table(name = "catagories_to_event", schema = "collage", catalog = "")
+@Table(name = "catagories_to_event", schema = "collage")
 @IdClass(CatagoriesToEventPK.class)
 public class CatagoriesToEvent {
     private Integer eventId;
