@@ -1,10 +1,8 @@
 package models;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Collection;
 
 /**
  * Created by Gal on 27-May-16.
@@ -14,6 +12,7 @@ public class Categories {
     private Integer id;
     private String name;
     private Timestamp cancelDate;
+    private Collection<models.Users> Users;
 
     @Id
     @Column(name = "id")
@@ -65,5 +64,14 @@ public class Categories {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (cancelDate != null ? cancelDate.hashCode() : 0);
         return result;
+    }
+
+    @ManyToMany(mappedBy = "Categories")
+    public Collection<models.Users> getUsers() {
+        return Users;
+    }
+
+    public void setUsers(Collection<models.Users> users) {
+        Users = users;
     }
 }
