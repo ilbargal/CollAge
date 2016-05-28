@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Collection;
 
 /**
  * Created by Gal on 27-May-16.
@@ -23,6 +24,7 @@ public class Users {
     private String job;
     private String profilePic;
     private Timestamp cancelDate;
+    private Collection<models.Categories> categories;
 
     @Id
     @Column(name = "mail")
@@ -170,5 +172,18 @@ public class Users {
         result = 31 * result + (profilePic != null ? profilePic.hashCode() : 0);
         result = 31 * result + (cancelDate != null ? cancelDate.hashCode() : 0);
         return result;
+    }
+
+    @ManyToMany
+    @JoinTable(name = "users_to_categories",
+            schema = "collage",
+            joinColumns = @JoinColumn(name = "user_mail", referencedColumnName = "mail", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false))
+    public Collection<models.Categories> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Collection<models.Categories> categories) {
+        categories = categories;
     }
 }

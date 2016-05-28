@@ -5,7 +5,7 @@
 
     <persistence-unit name="collageUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        
+
         <class>models.CatagoriesToEvent</class>
         <class>models.Categories</class>
         <class>models.Events</class>
