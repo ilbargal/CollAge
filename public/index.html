@@ -72,6 +72,18 @@
             </nav>
         </header>
 
+        <!-- Banner -->
+        <section id="banner">
+            <h2>ברוכים הבאים ל-CollAge</h2>
+            <p>הרשת החברתית בשבילך</p>
+            <ul class="actions">
+                <li>
+                    <a ng-click="signin()" ng-if="!auth.isAuthenticated" class="button big"><span class="icon-login"></span> משתמש קיים</a>
+                    <a href="#" ng-if="!auth.isAuthenticated" class="button big"><span> משתמש חדש</span></a>
+                    <a href="#/calendar" ng-if="auth.isAuthenticated" class="button big">ללוח השנה שלי</a>
+                </li>
+            </ul>
+        </section>
         <ng-view></ng-view>
 
 		<!-- Footer -->
