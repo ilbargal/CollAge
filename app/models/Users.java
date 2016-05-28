@@ -24,7 +24,7 @@ public class Users {
     private String job;
     private String profilePic;
     private Timestamp cancelDate;
-    private Collection<models.Categories> Categories;
+    private Collection<models.Categories> categories;
 
     @Id
     @Column(name = "mail")
@@ -175,12 +175,15 @@ public class Users {
     }
 
     @ManyToMany
-    @JoinTable(name = "users_to_categories", schema = "collage", joinColumns = @JoinColumn(name = "user_mail", referencedColumnName = "mail", nullable = false), inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false))
+    @JoinTable(name = "users_to_categories",
+            schema = "collage",
+            joinColumns = @JoinColumn(name = "user_mail", referencedColumnName = "mail", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false))
     public Collection<models.Categories> getCategories() {
-        return Categories;
+        return categories;
     }
 
     public void setCategories(Collection<models.Categories> categories) {
-        Categories = categories;
+        categories = categories;
     }
 }

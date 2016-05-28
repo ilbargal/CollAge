@@ -10,10 +10,12 @@ GET     /getAllEvents                   controllers.ActivitiesController.getAllA
 GET     /getEvent/:id                   controllers.ActivitiesController.getActivity(id: String)
 GET     /getUsers                       controllers.MainController.getUsers()
 
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file                          controllers.Assets.at(path="/public", file)
 
 # Users:
 # New User page
 #POST
-POST     /addUser                       controllers.UsersController.addUser()
+#POST     /addUser                       controllers.UsersController.addUser()
+POST     /signup                       controllers.UsersController.signup

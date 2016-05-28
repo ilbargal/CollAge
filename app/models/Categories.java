@@ -66,7 +66,7 @@ public class Categories {
         return result;
     }
 
-    @ManyToMany(mappedBy = "Categories")
+    @ManyToMany(mappedBy = "categories")
     public Collection<models.Users> getUsers() {
         return Users;
     }

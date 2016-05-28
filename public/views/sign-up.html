@@ -10,13 +10,15 @@
         <section>
             <!-- Login Details -->
             <h3>פרטי התחברות</h3>
-            <form method="post" action="#">
+            <form ng-submit="signup()" ng-controller="signupController">
                 <div class="3u 100u$(xsmall)">
-                    <input type="email" name="email" id="email" value="" placeholder="דוא''ל" />
+                    <input type="email" name="email" id="email" value="" placeholder="דוא''ל"
+                        ng-model="email"/>
                 </div>
                 <br>
                 <div class="3u$ 100u$(xsmall)">
-                    <input type="password" name="password" id="password" value="" placeholder="סיסמה" />
+                    <input type="password" name="password" id="password" value="" placeholder="סיסמה"
+                        ng-model="password"/>
                 </div>
                 <br>
                 <div class="3u$ 5u$(xsmall)">
@@ -73,7 +75,7 @@
                 <br>
                 <div class="12u$">
                     <ul class="actions">
-                        <li><input type="submit" value="צור משתמש" class="update" /></li>
+                        <li>  <input type="submit" id="submit" value="Submit" /></li>
                     </ul>
                 </div>
             </form>
