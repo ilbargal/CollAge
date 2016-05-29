@@ -30,7 +30,7 @@ public class UsersController extends Controller {
         newUser.setFirstName("dsa");
         newUser.setLastName("dsa");
         newUser.setGender("dsa");
-        newUser.setBirthday(Timestamp.valueOf("2007-09-23 10:10:10.0"));
+        //newUser.setBirthday(Timestamp.valueOf("2007-09-23 10:10:10.0"));
         newUser.setAddress("petah tikva");
         newUser.setPhone("dsad");
         newUser.setJob("dsad");
