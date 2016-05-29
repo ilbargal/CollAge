@@ -24,5 +24,4 @@
             <property name="hibernate.connection.password" value="bargal"/>
         </properties>
     </persistence-unit>
-
 </persistence>

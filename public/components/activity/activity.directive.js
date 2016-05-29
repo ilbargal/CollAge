@@ -8,7 +8,10 @@
                 return $http.get("/getEvent/" + id);
             },
             addEvent: function (activity) {
-                return $http.post("/addActivity");
+                return $http.post("/addActivity", activity);
+            },
+            getAllCategories: function() {
+                return $http.get("getAllCategories");
             },
             deleteEvent: function (id) {
             }
