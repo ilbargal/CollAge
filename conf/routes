@@ -3,13 +3,13 @@
 # ~~~~
 
 # Home page
+#POST    /person                        controllers.Application.addPerson()
+#GET     /persons                       controllers.Application.getPersons
 GET     /                               controllers.Assets.at(path="/public", file="index.html")
 GET     /getAllEvents                   controllers.ActivitiesController.getAllActivities()
 GET     /getEvent/:id                   controllers.ActivitiesController.getActivity(id: String)
 GET     /getUsers                       controllers.MainController.getUsers()
-POST    /addActivity                    controllers.ActivitiesController.addActivity()
-#POST    /person                        controllers.Application.addPerson()
-#GET     /persons                       controllers.Application.getPersons
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file                          controllers.Assets.at(path="/public", file)

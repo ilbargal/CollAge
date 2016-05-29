@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Collection;
 
@@ -18,13 +19,14 @@ public class Users {
     private String firstName;
     private String lastName;
     private String gender;
-    private Timestamp birthday;
+    private Date birthday;
     private String address;
     private String phone;
     private String job;
     private String profilePic;
     private Timestamp cancelDate;
-    private Collection<models.Categories> categories;
+    private Collection<Categories> categories;
+    private String description;
 
     @Id
     @Column(name = "mail")
@@ -78,11 +80,11 @@ public class Users {
 
     @Basic
     @Column(name = "birthday")
-    public Timestamp getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Timestamp birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
@@ -179,11 +181,21 @@ public class Users {
             schema = "collage",
             joinColumns = @JoinColumn(name = "user_mail", referencedColumnName = "mail", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false))
-    public Collection<models.Categories> getCategories() {
+    public Collection<Categories> getCategories() {
         return categories;
     }
 
-    public void setCategories(Collection<models.Categories> categories) {
+    public void setCategories(Collection<Categories> categories) {
         categories = categories;
+    }
+
+    @Basic
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
