@@ -13,6 +13,7 @@ public class Categories {
     private String name;
     private Timestamp cancelDate;
     private Collection<models.Users> Users;
+    private Collection<models.Events> events;
 
     @Id
     @Column(name = "id")
@@ -73,5 +74,14 @@ public class Categories {
 
     public void setUsers(Collection<models.Users> users) {
         Users = users;
+    }
+
+    @ManyToMany(mappedBy = "events")
+    public Collection<models.Events> getEvents() {
+        return this.events;
+    }
+
+    public void setEvents(Collection<models.Events> events) {
+        this.events = events;
     }
 }

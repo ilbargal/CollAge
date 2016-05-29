@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Collection;
 
 /**
  * Created by Gal on 27-May-16.
@@ -20,6 +21,7 @@ public class Events {
     private String location;
     private Timestamp datetime;
     private Timestamp cancelDate;
+    private Collection<Categories> categories;
 
     @Id
     @Column(name = "id")
@@ -131,5 +133,18 @@ public class Events {
         result = 31 * result + (datetime != null ? datetime.hashCode() : 0);
         result = 31 * result + (cancelDate != null ? cancelDate.hashCode() : 0);
         return result;
+    }
+
+    @ManyToMany
+    @JoinTable(name = "catagories_to_event",
+            schema = "collage",
+            joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false))
+    public Collection<Categories> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Collection<models.Categories> categories) {
+        this.categories = categories;
     }
 }
