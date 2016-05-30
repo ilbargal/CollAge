@@ -26,19 +26,11 @@ public class Events {
     private Timestamp cancelDate;
     private String imagePath;
     private Collection<Categories> categories;
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-    private Collection<Categories> categories;
+    private Collection<Users> users;
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     public Integer getId() {
         return id;
     }
@@ -161,7 +153,7 @@ public class Events {
     }
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "categories_to_events",
+    @JoinTable(name = "catagories_to_event",
             schema = "collage",
             joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false))
@@ -174,15 +166,15 @@ public class Events {
     }
 
     @ManyToMany
-    @JoinTable(name = "catagories_to_event",
+    @JoinTable(name = "users_to_events",
             schema = "collage",
             joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false))
-    public Collection<Categories> getCategories() {
-        return categories;
+            inverseJoinColumns = @JoinColumn(name = "user_mail", referencedColumnName = "mail", nullable = false))
+    public Collection<Users> getUsers() {
+        return users;
     }
 
-    public void setCategories(Collection<models.Categories> categories) {
-        this.categories = categories;
+    public void setUsers(Collection<Users> users) {
+        this.users = users;
     }
 }

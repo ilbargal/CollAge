@@ -82,7 +82,7 @@ public class Categories {
         Users = users;
     }
 
-    @ManyToMany(mappedBy = "events")
+    @ManyToMany(mappedBy = "categories")
     public Collection<models.Events> getEvents() {
         return this.events;
     }

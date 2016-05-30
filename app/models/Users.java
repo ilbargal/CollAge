@@ -27,6 +27,7 @@ public class Users {
     private Timestamp cancelDate;
     private Collection<Categories> categories;
     private String description;
+    private Collection<Events> events;
 
     @Id
     @Column(name = "mail")
@@ -197,5 +198,18 @@ public class Users {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @ManyToMany
+    @JoinTable(name = "users_to_events",
+            schema = "collage",
+            joinColumns = @JoinColumn(name = "user_mail", referencedColumnName = "mail", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false))
+    public Collection<Events> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Collection<Events> events) {
+        this.events = events;
     }
 }
