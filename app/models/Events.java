@@ -1,5 +1,8 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
@@ -21,10 +24,21 @@ public class Events {
     private String location;
     private Timestamp datetime;
     private Timestamp cancelDate;
+    private String imagePath;
+    private Collection<Categories> categories;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
     private Collection<Categories> categories;
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
@@ -85,6 +99,7 @@ public class Events {
 
     @Basic
     @Column(name = "datetime")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy HH:mm")
     public Timestamp getDatetime() {
         return datetime;
     }
@@ -133,6 +148,29 @@ public class Events {
         result = 31 * result + (datetime != null ? datetime.hashCode() : 0);
         result = 31 * result + (cancelDate != null ? cancelDate.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "image_path")
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "categories_to_events",
+            schema = "collage",
+            joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false))
+    public Collection<Categories> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Collection<models.Categories> categories) {
+        categories = categories;
     }
 
     @ManyToMany

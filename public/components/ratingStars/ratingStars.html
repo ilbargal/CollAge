@@ -1,0 +1,18 @@
+<!--<div ng-app="app" ng-controller="RatingController as rating" class="container">-->
+    <!--<h1>Angular Star Rating Directive</h1>-->
+    <!--<div star-rating ng-model="rating.rating1" max="10" on-rating-select="rating.rateFunction(rating)"></div>-->
+    <!--<star-rating ng-model="rating.rating2" readonly="rating.isReadonly"></star-rating>-->
+    <!--<label>-->
+        <!--<input type="checkbox" ng-model="rating.isReadonly"/>-->
+        <!--Is Readonly-->
+    <!--</label>-->
+
+    <!--<div><strong>Rating 1:</strong> {{rating.rating1}}</div>-->
+    <!--<div><strong>Rating 2:</strong> {{rating.rating2}}</div>-->
+<!--</div>-->
+
+<ul class="star-rating" ng-class="{readonly: readonly}">
+        <li ng-repeat="star in stars" class="star" ng-class="{filled: star.filled}" ng-click="toggle($index)">
+        <i class="fa fa-star"></i>
+    </li>
+</ul>

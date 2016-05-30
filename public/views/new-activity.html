@@ -1,5 +1,5 @@
 <!-- New Activity -->
-<section id="new-activity" class="wrapper" dir="rtl">
+<section id="new-activity" class="wrapper" dir="rtl" ng-controller="newActivityController">
     <div class="container">
 
         <header class="major">
@@ -7,41 +7,56 @@
         </header>
 
         <section>
-            <form method="post" action="#">
-
+            <form ng-submit="addActivity()">
                 <div class="3u 5u$(xsmall)">
-                    <div class="participants">שם הפעילות:</div>
+                    <div class="participants">
+                        <h4>שם הפעילות:</h4>
+                        <input type="text" ng-model="activityName" maxlength="30" id="name" name="name" />
+                    </div>
                 </div>
                 <br>
                 <div class="12u$">
-                    <div class="participants">הסבר על הפעילות:</div>
+                    <div class="participants">
+                        <h4>תיאור קצר:</h4>
+                        <textarea rows="3" ng-model="activityDescription" id="description" name="description"></textarea>
+                    </div>
                 </div>
                 <br>
-                <div style="float:left" class="4u"><span class="image fit"><img src="images/pic05.jpg" alt="" /></span>
+                <div style="float:left" class="4u">
+                    <h4>קישור לתמונה:</h4>
+                    <input type="text" ng-model="imagePath"  />
+                    <span class="image fit"><img src="{{imagePath}}" name="imagePath" id="imagePath" alt="" /></span>
                 </div>
                 <br>
-                <div class="location">מיקום:</div>
+                <div class="location">
+                    <h4>מיקום:</h4>
+                    <input type="text" ng-model="activityLocation" id="location" name="location" />
+                </div>
                 <br>
                 <div class="12u$">
                     <div class="participants">משתתפים:</div>
                 </div>
                 <br>
                 <div class="3u 5u$(xsmall)">
-                    תאריך הפעילות:
-                    <input type="datetime-local" name="actdate" id="actdate" value=""/>
+                    <h4>תאריך:</h4>
+                    <input type="datetime-local" ng-model="activityDatetime" name="datetime" id="datetime" value=""/>
                     <br>
                 </div>
                 <br>
                 <div class="3u$">
                     <div class="select-wrapper">
-                        <div class="category">קטגוריה:</div>
+                        <div class="category">
+                            <h4>קטגוריות:</h4>
+                            <select size="10" id="mycategories" multiple ng-multiple="true" ng-model="selectedCategories" ng-options="c.name for c in allCategories"></select>
+                        </div>
                     </div>
                     <br>
                     <div class="12u$">
                         <ul class="actions">
-                            <li><input type="submit" value="הצטרף לפעילות" class="update" /></li>
+                            <li><input type="submit" value="הוסף אירוע" class="update" /></li>
                         </ul>
                     </div>
+                </div>
             </form>
         </section>
 
