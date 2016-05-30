@@ -8,14 +8,20 @@ import java.util.Collection;
  * Created by Gal on 27-May-16.
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name="findCategoryById", query="SELECT c from Categories c where c.id = :catId"),
+        @NamedQuery(name="findAllCategories", query="SELECT c from Categories c"),
+})
 public class Categories {
     private Integer id;
     private String name;
     private Timestamp cancelDate;
     private Collection<models.Users> Users;
+    private Collection<models.Events> events;
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
@@ -66,12 +72,22 @@ public class Categories {
         return result;
     }
 
-    @ManyToMany(mappedBy = "categories")
+
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     public Collection<models.Users> getUsers() {
         return Users;
     }
 
     public void setUsers(Collection<models.Users> users) {
         Users = users;
+    }
+
+    @ManyToMany(mappedBy = "events")
+    public Collection<models.Events> getEvents() {
+        return this.events;
+    }
+
+    public void setEvents(Collection<models.Events> events) {
+        this.events = events;
     }
 }
