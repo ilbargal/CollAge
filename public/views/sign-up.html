@@ -12,8 +12,8 @@
             <h3>פרטי התחברות</h3>
             <form ng-submit="signup()" ng-controller="signupController">
                 <div class="3u 100u$(xsmall)">
-                    <input type="email" name="email" id="email" value="" placeholder="דוא''ל"
-                        ng-model="email"/>
+                    <input type="email" name="mail" id="mail" value="" placeholder="דוא''ל"
+                        ng-model="mail"/>
                 </div>
                 <br>
                 <div class="3u$ 100u$(xsmall)">
@@ -21,48 +21,62 @@
                         ng-model="password"/>
                 </div>
                 <br>
-                <div class="3u$ 5u$(xsmall)">
-                    <input type="password" name="newpass" id="newpass" value="" placeholder="סיסמה חדשה" />
-                </div>
-                <br>
+
                 <h3>פרטים אישיים</h3>
                 <!-- Personal Details -->
 
                 <div class="3u 5u$(xsmall)">
-                    <input type="text" name="firtname" id="firtname " value="" placeholder="שם פרטי"/>
+                    <input type="text" name="fisrtname" id="fisrtname " value="" placeholder="שם פרטי"
+                           ng-model="firstname"/>
                 </div>
 
-                <div style="float:left" class="4u"><span class="image fit"><img src="images/pic05.jpg" alt="" /></span>
-                    <input type="submit" value="עיין" class="updatePic" />
+                <div style="float:left" class="4u"><span class="image fit" ng-model="profilePic" value="http://plainicon.com/dboard/userprod/2802_db2aa/prod_thumb/plainicon.com-46957-256px-719.png">
+                    <img src="http://plainicon.com/dboard/userprod/2802_db2aa/prod_thumb/plainicon.com-46957-256px-719.png" alt=""/></span>
+                    <input type="submit" value="עיין" class="updatePic"/>
                 </div>
 
                 <br>
                 <div class="3u 5u$(xsmall)">
-                    <input type="text" name="surname" id="surname " value="" placeholder="שם משפחה"/>
+                    <input type="text" name="lastname" id="lastname " value="" placeholder="שם משפחה"
+                           ng-model="lastname"/>
                 </div>
                 <br>
                 <div class="genderSection">
                     <div class="4u 12u$(small)">
-                        <input type="radio" id="male" name="gender" checked>
-                        <label for="male">זכר</label>
+                        <input type="radio" id="male" name="gender" checked
+                               ng-model="gender">
+                        <label for="male" value="זכר">זכר</label>
                         <input type="radio" id="female" name="gender" checked>
-                        <label for="female">נקבה</label>
+                        <label for="female" value="נקבה">נקבה</label>
                     </div>
                 </div>
                 <br>
+
                 <div class="3u 5u$(xsmall)">
-                    <input type="text" name="organization" id="organization" value="" placeholder="ארגון"/>
+                    <input type="datetime" name="birthday" />
                 </div>
                 <br>
+
+                    <div class="3u 5u$(xsmall)">
+                        <input type="text" name="address" id="address" value="" placeholder="כתובת מגורים"
+                               ng-model="address"/>
+                    </div>
+                    <br>
+
+                    <div class="3u 5u$(xsmall)">
+                        <input type="text" name="phone" id="phone" value="" placeholder="טלפון"
+                               ng-model="phone"/>
+                    </div>
+                    <br>
+
                 <div class="3u$">
                     <div class="select-wrapper">
-                        <select dir="rtl" name="profession" id="profession">
+                        <select dir="rtl" name="job" id="job" ng-model="job">
                             <option value="">- מקצוע - </option>
-                            <option value="1">צייר</option>
-                            <option value="1">מתכנת</option>
-                            <option value="1">מנהל</option>
-                            <option value="1">מהנדס</option>
-                            <option value="1">אחר</option>
+                            <option value="צייר">צייר</option>
+                            <option value="מתכנת">מתכנת</option>
+                            <option value="מנהל">מנהל</option>
+                            <option value="מהנדס">מהנדס</option>
                         </select>
                     </div>
                 </div>
@@ -75,7 +89,7 @@
                 <br>
                 <div class="12u$">
                     <ul class="actions">
-                        <li>  <input type="submit" id="submit" value="Submit" /></li>
+                        <li>  <input type="submit" id="submit" value="ההרשם!" /></li>
                     </ul>
                 </div>
             </form>

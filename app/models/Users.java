@@ -19,7 +19,7 @@ public class Users {
     private String firstName;
     private String lastName;
     private String gender;
-    private Date birthday;
+    private Timestamp birthday;
     private String address;
     private String phone;
     private String job;
@@ -81,11 +81,11 @@ public class Users {
 
     @Basic
     @Column(name = "birthday")
-    public Date getBirthday() {
+    public Timestamp getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(Timestamp birthday) {
         this.birthday = birthday;
     }
 

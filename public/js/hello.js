@@ -3940,7 +3940,7 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 			// Authorization scopes
 			scope: {
 				basic: 'https://www.googleapis.com/auth/plus.me profile',
-				email: 'email',
+				mail: 'mail',
 				birthday: '',
 				events: '',
 				photos: 'https://picasaweb.google.com/data/',
