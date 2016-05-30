@@ -8,6 +8,7 @@
                 return $http.get("/getEvent/" + id);
             },
             addEvent: function (activity) {
+                return $http.post("/addActivity");
             },
             deleteEvent: function (id) {
             }
@@ -32,7 +33,7 @@
                     link: function ($scope, element, attrs) {
                         var activity = $scope.ngModel;
                          $scope.location = activity.location;
-                         $scope.start = activity.start;
+                         $scope.start = activity.datetime;
                          $scope.imagePath = activity.imagePath;
                     } //DOM manipulation
         };
