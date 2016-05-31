@@ -1,5 +1,5 @@
 <!-- Profile -->
-<section id="profile" class="wrapper" dir="rtl">
+<section id="signup" class="wrapper" dir="rtl">
     <div class="container">
 
         <header class="major">
@@ -12,12 +12,12 @@
             <h3>פרטי התחברות</h3>
             <form ng-submit="signup()" ng-controller="signupController">
                 <div class="3u 100u$(xsmall)">
-                    <input type="email" name="mail" id="mail" value="" placeholder="דוא''ל"
+                    <input type="email" name="mail" id="mail" placeholder="דוא''ל"
                         ng-model="mail"/>
                 </div>
                 <br>
                 <div class="3u$ 100u$(xsmall)">
-                    <input type="password" name="password" id="password" value="" placeholder="סיסמה"
+                    <input type="password" name="password" id="password" placeholder="סיסמה"
                         ng-model="password"/>
                 </div>
                 <br>
@@ -26,12 +26,14 @@
                 <!-- Personal Details -->
 
                 <div class="3u 5u$(xsmall)">
-                    <input type="text" name="fisrtname" id="fisrtname " value="" placeholder="שם פרטי"
+                    <input type="text" name="fisrtname" id="fisrtname" placeholder="שם פרטי"
                            ng-model="firstname"/>
                 </div>
 
-                <div style="float:left" class="4u"><span class="image fit" ng-model="profilePic" value="http://plainicon.com/dboard/userprod/2802_db2aa/prod_thumb/plainicon.com-46957-256px-719.png">
-                    <img src="http://plainicon.com/dboard/userprod/2802_db2aa/prod_thumb/plainicon.com-46957-256px-719.png" alt=""/></span>
+                <div style="float:left" class="4u">
+                    <span class="image fit" ng-model="profilePic">
+                        <img src="http://plainicon.com/dboard/userprod/2802_db2aa/prod_thumb/plainicon.com-46957-256px-719.png"/>
+                    </span>
                     <input type="submit" value="עיין" class="updatePic"/>
                 </div>
 
@@ -43,10 +45,10 @@
                 <br>
                 <div class="genderSection">
                     <div class="4u 12u$(small)">
-                        <input type="radio" id="male" name="gender" checked
-                               ng-model="gender">
+                        <input type="radio" id="male" name="gender" checked ng-model="gender" value="זכר">
                         <label for="male" value="זכר">זכר</label>
-                        <input type="radio" id="female" name="gender" checked>
+
+                        <input type="radio" id="female" name="gender" checked  ng-model="gender" value="נקבה">
                         <label for="female" value="נקבה">נקבה</label>
                     </div>
                 </div>
@@ -84,13 +86,13 @@
                 <br>
                 <br>
                 <div class="12u$">
-                    <textarea dir="rtl" name="message" id="message" placeholder="קצת עלי..." rows="6"></textarea>
+                    <textarea dir="rtl" name="message" id="message" placeholder="קצת עלי..." rows="6" ng-model="description"></textarea>
                 </div>
 
                 <br>
                 <div class="12u$">
                     <ul class="actions">
-                        <li>  <input type="submit" id="submit" value="ההרשם!" /></li>
+                        <li>  <input type="submit" id="submit" value="הרשם!" /></li>
                     </ul>
                 </div>
             </form>

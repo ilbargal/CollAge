@@ -27,21 +27,19 @@ public class UsersController extends Controller {
 
         Users newUser = signUpForm.get();
 
-        // Todo: remove this. i just pust it here to bypass the null constraint
-
         UserBL.getInstance().insertUser(newUser);
 
+        return ok("Success");
+    }
+
+    public Result signin() throws JsonProcessingException {
+
+        Form<Users> signInForm = formFactory.form(Users.class).bindFromRequest();
+
+        Users usr = signInForm.get();
+
+        UserBL.getInstance().getUser(usr.getMail(), usr.getPassword());
 
         return ok("Success");
-
-//        try {
-//            Users users = new Users();
-//            JsonNode body = request().body().asJson().get("currUser");
-//
-//            return ok(Utils.convertObjectToJsonString(users));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return internalServerError(e.getStackTrace()[0].toString());
-//        }
     }
 }

@@ -9,10 +9,11 @@ import java.util.Collection;
  * Created by Gal on 27-May-16.
  */
 @Entity
-@NamedQuery(
-        name="findAllUsers",
-        query="SELECT u FROM Users u"
-)
+@NamedQueries({
+        @NamedQuery(name = "findAllUsers", query = "SELECT u FROM Users u"),
+        @NamedQuery(name = "findUser", query = "SELECT u FROM Users u where u.mail LIKE ?1 and u.password LIKE ?2")
+})
+
 public class Users {
     private String mail;
     private String password;

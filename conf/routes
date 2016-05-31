@@ -19,7 +19,7 @@ GET     /getAllCategories               controllers.CategoriesController.getAllC
 GET     /*file                          controllers.Assets.at(path="/public", file)
 
 # Users:
-# New User page
-#POST
-#POST     /addUser                       controllers.UsersController.addUser()
+# Sign Up page:
 POST     /signup                       controllers.UsersController.signup()
+# Sign In page:
+POST     /signin                       controllers.UsersController.signin()

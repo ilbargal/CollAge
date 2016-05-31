@@ -1,0 +1,31 @@
+<!-- Profile -->
+<section id="signin" class="wrapper" dir="rtl">
+    <div class="container">
+
+        <!-- Form -->
+        <section>
+            <!-- Login Details -->
+            <h3>פרטי התחברות</h3>
+            <form ng-submit="signin()" ng-controller="signinController">
+                <div class="3u 100u$(xsmall)">
+                    <input type="email" name="mail" id="mail" placeholder="דוא''ל"
+                           ng-model="mail"/>
+                </div>
+                <br>
+                <div class="3u$ 100u$(xsmall)">
+                    <input type="password" name="password" id="password" placeholder="סיסמה"
+                           ng-model="password"/>
+                </div>
+
+                <br>
+
+                <div class="12u$">
+                    <ul class="actions">
+                        <li>  <input type="submit" id="submit" value="התחבר" /></li>
+                    </ul>
+                </div>
+            </form>
+        </section>
+
+    </div>
+</section>

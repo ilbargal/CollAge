@@ -2,6 +2,8 @@ package bl;
 import common.DataBaseHandler;
 import models.Users;
 
+import java.util.List;
+
 public class UserBL {
     private static UserBL _instance;
 
@@ -19,17 +21,19 @@ public class UserBL {
         return _instance;
     }
 
-    public Users getUser(String email, String password) {
-        // TODO: get user from DB
-        return null;
+    public Users getUser(String mail, String password) {
+
+        Object[] obj = new Object[2];
+        obj[0]  = mail;
+        obj[1] = password;
+
+        List<Users> usr = DataBaseHandler.getInstance().queryByParams("findUser", obj);
+
+        return usr.get(0);
     }
 
     public boolean isUserExistsWithEmail(String email) {
         // TODO: return it
-        return false;
-    }
-
-    public boolean checkUserValidation (Users usr) {
         return false;
     }
 
