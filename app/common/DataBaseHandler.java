@@ -49,6 +49,7 @@ public class DataBaseHandler {
         em.getTransaction().begin();
         em.persist(obj);
         em.getTransaction().commit();
+        em.refresh(obj);
         em.close();
     }
 

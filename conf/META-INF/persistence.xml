@@ -24,5 +24,4 @@
             <property name="hibernate.connection.password" value="1234"/>
         </properties>
     </persistence-unit>
-
 </persistence>

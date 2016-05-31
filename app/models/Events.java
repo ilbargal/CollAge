@@ -2,10 +2,14 @@ package models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import play.data.format.Formats;
 
 import javax.persistence.*;
+import javax.validation.Constraint;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Gal on 27-May-16.
@@ -25,7 +29,7 @@ public class Events {
     private Timestamp datetime;
     private Timestamp cancelDate;
     private String imagePath;
-    private Collection<Categories> categories;
+    private Collection<Categories> categories = new ArrayList<Categories>();
     private Collection<Users> users;
 
     @Id
@@ -152,8 +156,8 @@ public class Events {
         this.imagePath = imagePath;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "catagories_to_event",
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinTable(name = "catagories_to_events",
             schema = "collage",
             joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false))
@@ -161,11 +165,11 @@ public class Events {
         return categories;
     }
 
-    public void setCategories(Collection<models.Categories> categories) {
-        categories = categories;
+    public void setCategories(Collection<models.Categories> myCategories) {
+        categories = myCategories;
     }
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(name = "users_to_events",
             schema = "collage",
             joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false),

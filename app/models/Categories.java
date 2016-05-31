@@ -73,7 +73,7 @@ public class Categories {
     }
 
 
-    @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     public Collection<models.Users> getUsers() {
         return Users;
     }
@@ -82,7 +82,11 @@ public class Categories {
         Users = users;
     }
 
-    @ManyToMany(mappedBy = "categories")
+    @ManyToMany(cascade = CascadeType.PERSIST ,fetch = FetchType.EAGER)
+    @JoinTable(name = "categories_to_events",
+            schema = "collage",
+            joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false))
     public Collection<models.Events> getEvents() {
         return this.events;
     }

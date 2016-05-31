@@ -39,18 +39,18 @@ public class ActivitiesController extends Controller {
     @Inject
     FormFactory formFactory;
     public Result addActivity() {
+        Integer id = 0;
         try {
             Form<Events> addActivityForm = formFactory.form(Events.class).bindFromRequest();
             Events newEvent = addActivityForm.get();
             Collection<Categories> categories = new ArrayList<Categories>();
-            categories.add(CategoryBL.getInstance().getCategoryById(1));
-            categories.add(CategoryBL.getInstance().getCategoryById(2));
             newEvent.setCategories(categories);
             EventBL.getInstance().addEvent(newEvent);
+            id = newEvent.getId();
         }
         catch (Exception e) {
             return internalServerError(e.toString());
         }
-        return ok();
+        return ok(id.toString());
     }
 }
