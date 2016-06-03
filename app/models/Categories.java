@@ -10,7 +10,9 @@ import java.util.Collection;
 @Entity
 @NamedQueries({
         @NamedQuery(name="findCategoryById", query="SELECT c from Categories c where c.id = :catId"),
+        @NamedQuery(name="findCategoriesByContent", query="SELECT c from Categories c where c.name Like :content"),
         @NamedQuery(name="findAllCategories", query="SELECT c from Categories c"),
+        @NamedQuery(name = "findMaxCategoryId", query = "SELECT Max(c.id) FROM Categories c")
 })
 public class Categories {
     private Integer id;
