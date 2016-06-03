@@ -53,7 +53,7 @@ public class DataBaseHandler {
         em.close();
     }
 
-    public <T> T queryByParams(String qry, Object[] params) {
+    public <T> T queryByParams(String qry, Object ...params) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("collageUnit");
         EntityManager em = emf.createEntityManager();
 
