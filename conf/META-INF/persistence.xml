@@ -17,10 +17,13 @@
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/collage"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://collagecolman.cloudapp.net:3306/collage"/>
+            <!--<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/Collage"/>-->
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="Magic1"/>
+            <property name="hibernate.connection.username" value="collage"/>
+            <!--<property name="hibernate.connection.username" value="root"/>-->
+            <property name="hibernate.connection.password" value="Aa123456"/>
+            <!--<property name="hibernate.connection.password" value="bargal"/>-->
         </properties>
     </persistence-unit>
 </persistence>
