@@ -38,7 +38,8 @@ public class UserBL {
         DataBaseHandler.getInstance().Persist(myUser);
     }
 
-    public void updateUser(Users myUser) {
-        // TODO: insert to DB
+    public void saveUser(Users myUser) {
+
+        DataBaseHandler.getInstance().Persist(myUser);
     }
 }

@@ -21,5 +21,6 @@ GET     /*file                          controllers.Assets.at(path="/public", fi
 # Users:
 # Sign Up page:
 POST     /signup                       controllers.UsersController.signup()
+POST     /saveUser                     controllers.UsersController.saveUser()
 # Sign In page:
-POST     /signin                       controllers.UsersController.signin()
+#POST     /signin                       controllers.UsersController.signin()
