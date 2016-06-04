@@ -3,8 +3,11 @@ package controllers;
 import bl.CategoryBL;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.google.inject.Inject;
 import common.Utils;
 import models.Categories;
+import play.data.Form;
+import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -19,5 +22,33 @@ public class CategoriesController extends Controller {
         catch (Exception e) {
             return internalServerError(e.toString());
         }
+    }
+
+    public Result getAllCategories(String content) throws JsonProcessingException {
+        try {
+            List<Categories> categories = CategoryBL.getInstance().getAllCategories(content);
+            return ok(Utils.convertObjectToJsonString(categories));
+        }
+        catch (Exception e) {
+            return internalServerError(e.toString());
+        }
+    }
+
+    @Inject
+    FormFactory formFactory;
+    public Result addCategory(String name) {
+        String message = "Success";
+        Integer id = 0;
+        try {
+            Form<Categories> addCategory = formFactory.form(Categories.class).bindFromRequest();
+            Categories newCategory = addCategory.get();
+            newCategory.setId(CategoryBL.getInstance().getNextId());
+            newCategory.setName(name);
+            CategoryBL.getInstance().addCategory(newCategory);
+        }
+        catch (Exception e) {
+            return internalServerError(e.toString());
+        }
+        return ok(message.toString());
     }
 }
