@@ -5,6 +5,7 @@ import models.Users;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -50,6 +51,22 @@ public class DataBaseHandler {
         em.getTransaction().commit();
         em.refresh(obj);
         em.close();
+    }
+
+    public <T> T queryByParams(String qry, Object ...params) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("collageUnit");
+        EntityManager em = emf.createEntityManager();
+
+        Query q = em.createNamedQuery(qry);
+
+        for (int i=0; i < params.length; i++) {
+            q.setParameter(i+1, params[i]);
+        }
+        T results = (T) q.getResultList();
+
+        em.close();
+
+        return results;
     }
 }
 
