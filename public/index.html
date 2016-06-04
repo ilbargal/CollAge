@@ -76,7 +76,7 @@
                 <ul>
                     <li><img src="images/logo.png" class="logo" width="50" height="50" /></li>
                     <li><h1><a href="#/main">CollAge</a></h1></li>
-                    <li ng-if="auth.profile.picture"><i class="icon big rounded"><img ng-src="{{auth.profile.picture}}" style="border-radius:30px" /></i></li>
+                    <li ng-if="auth.profile.picture"><i class="icon big rounded"><img ng-src="{{auth.profile.picture}}" style="border-radius:30px; width: 100%; height: 100%" /></i></li>
                     <li ng-if="auth.profile.name"><h1>שלום {{auth.profile.name}}</h1></li>
                 </ul>
 
@@ -99,7 +99,7 @@
             <ul class="actions">
                 <li>
                     <a ng-click="signin()" ng-if="!auth.isAuthenticated" class="button big"><span class="icon-login"></span> משתמש קיים</a>
-                    <a href="#" ng-if="!auth.isAuthenticated" class="button big"><span> משתמש חדש</span></a>
+                    <a ng-click="signup()" ng-if="!auth.isAuthenticated" class="button big"><span> משתמש חדש</span></a>
                     <a href="#/calendar" ng-if="auth.isAuthenticated" class="button big">ללוח השנה שלי</a>
                 </li>
             </ul>
