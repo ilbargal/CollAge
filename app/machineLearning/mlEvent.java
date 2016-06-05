@@ -9,7 +9,7 @@ import java.util.Collection;
  * Created by Daniel
  * This class represents an event for the machine learning algorithm
  */
-public class mlEvent {
+public class mlEvent implements Comparable<mlEvent> {
 
     private Events event;
     private double score;
@@ -31,5 +31,14 @@ public class mlEvent {
         this.score = score;
     }
 
+    @Override
+    public int compareTo(mlEvent o) {
 
+        if (this.getScore() == o.getScore())
+            return 0;
+        else if (this.getScore() > o.getScore())
+            return 1;
+        else
+            return -1;
+    }
 }

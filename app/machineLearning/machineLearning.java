@@ -6,6 +6,8 @@ import models.Users;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by thecr_000 on 28/05/2016.
@@ -61,6 +63,8 @@ public class machineLearning {
         // Put the events in a new array list
         // Ordered by the score they received
         ArrayList<Events> recEvents = new ArrayList<>();
+
+        Collections.sort(mlEvents);
 
         for (mlEvent e: mlEvents){
             Events event = e.getEvent();
