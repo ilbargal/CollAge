@@ -34,7 +34,6 @@ public class EventBL {
     }
 
     public void addEvent(Events evt) {
-        evt.setDatetime(new Timestamp(116, 5, 15, 00, 00, 00, 00));
         evt.setOwner("ilbargal@gmail.com");
         evt.setStatus(1);
         DataBaseHandler.getInstance().Persist(evt);

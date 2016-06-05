@@ -107,6 +107,7 @@
 		font-weight: 300;
 		line-height: 1em;
 		margin: 0 0 1em 0;
+		font-family: 'Alef', 'sans-serif';
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -258,6 +259,7 @@
 
 	label {
 		color: #666;
+		background-color: aquamarine;
 		display: block;
 		font-size: 0.9em;
 		font-weight: 400;
@@ -362,7 +364,7 @@
 			background: #3ba666;
 			border-color: #3ba666;
 			color: #ffffff;
-			content: '\f00c';
+			content: 'V';
 		}
 
 		input[type="checkbox"]:focus + label:before,
@@ -518,7 +520,7 @@
 
 		ul li {
 			padding-left: 0.5em;
-			display: inline;
+			display: inline-block;
 		}
 
 		ul.alt {
@@ -934,8 +936,13 @@
 					padding-right: 0;
 				}
 
+				#navLeft > ul {
+					/*display: block !important;*/
+				}
+
 				#navLeft > ul > li {
 				    margin-right: 1.5em;
+					/*display: block !important;*/
 				}
 
 				#navRight > ul > li {

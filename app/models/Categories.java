@@ -10,7 +10,9 @@ import java.util.Collection;
 @Entity
 @NamedQueries({
         @NamedQuery(name="findCategoryById", query="SELECT c from Categories c where c.id = :catId"),
+        @NamedQuery(name="findCategoriesByContent", query="SELECT c from Categories c where c.name Like :content"),
         @NamedQuery(name="findAllCategories", query="SELECT c from Categories c"),
+        @NamedQuery(name = "findMaxCategoryId", query = "SELECT Max(c.id) FROM Categories c")
 })
 public class Categories {
     private Integer id;
@@ -73,7 +75,7 @@ public class Categories {
     }
 
 
-    @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     public Collection<models.Users> getUsers() {
         return Users;
     }
@@ -82,7 +84,11 @@ public class Categories {
         Users = users;
     }
 
-    @ManyToMany(mappedBy = "categories")
+    @ManyToMany(cascade = CascadeType.PERSIST ,fetch = FetchType.EAGER)
+    @JoinTable(name = "categories_to_events",
+            schema = "collage",
+            joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false))
     public Collection<models.Events> getEvents() {
         return this.events;
     }

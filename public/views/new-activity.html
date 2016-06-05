@@ -3,62 +3,49 @@
     <div class="container">
 
         <header class="major">
-            <h2>פרטי הפעילות</h2>
+            <h2><i class="fa fa-calendar-o"> הוסף פעילות</i></h2>
         </header>
-
-        <section>
-            <form ng-submit="addActivity()">
-                <div class="3u 5u$(xsmall)">
+        <form ng-submit="addActivity()">
+            <div class="row uniform 50%">
+                <!-- event textboxes -->
+                <div class="6u 12u$(small)">
                     <div class="participants">
                         <h4>שם הפעילות:</h4>
-                        <input type="text" ng-model="activityName" maxlength="30" id="name" name="name" />
+                        <input type="text" ng-model="activityName" maxlength="30" id="name" name="name" placeholder="שם הפעילות" />
                     </div>
-                </div>
-                <br>
-                <div class="12u$">
                     <div class="participants">
                         <h4>תיאור קצר:</h4>
-                        <textarea rows="3" ng-model="activityDescription" id="description" name="description"></textarea>
+                        <textarea rows="3" ng-model="activityDescription" id="description" name="description" placeholder="תיאור"></textarea>
+                    </div>
+                    <div class="participants">
+                        <h4>תאריך:</h4>
+                        <input type="datetime-local" ng-model="activityDatetime" name="datetime" id="datetime" value=""/>
+                    </div>
+                    <div class="participants category">
+                        <h4>קטגוריות:</h4>
+                        <select size="5" id="mycategories" multiple ng-multiple="true" ng-model="selectedCategories" ng-options="c.name for c in allCategories"></select>
+                    </div>
+                    <div class="participants">
+                        <div class="participants">משתתפים:</div>
                     </div>
                 </div>
-                <br>
-                <div style="float:left" class="4u">
-                    <h4>קישור לתמונה:</h4>
-                    <input type="text" ng-model="imagePath"  />
-                    <span class="image fit"><img src="{{imagePath}}" name="imagePath" id="imagePath" alt="" /></span>
-                </div>
-                <br>
-                <div class="location">
-                    <h4>מיקום:</h4>
-                    <input type="text" ng-model="activityLocation" id="location" name="location" />
-                </div>
-                <br>
-                <div class="12u$">
-                    <div class="participants">משתתפים:</div>
-                </div>
-                <br>
-                <div class="3u 5u$(xsmall)">
-                    <h4>תאריך:</h4>
-                    <input type="datetime-local" ng-model="activityDatetime" name="datetime" id="datetime" value=""/>
-                    <br>
-                </div>
-                <br>
-                <div class="3u$">
-                    <div class="select-wrapper">
-                        <div class="category">
-                            <h4>קטגוריות:</h4>
-                            <select size="10" id="mycategories" multiple ng-multiple="true" ng-model="selectedCategories" ng-options="c.name for c in allCategories"></select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="12u$">
-                        <ul class="actions">
-                            <li><input type="submit" value="הוסף אירוע" class="update" /></li>
-                        </ul>
-                    </div>
-                </div>
-            </form>
-        </section>
 
+                <!-- pricture and location -->
+                <div class="6u 12u$(small)">
+                    <div class="participants">
+                        <h4>קישור לתמונה:</h4>
+                        <input type="text" ng-model="imagePath"  placeholder="הכנס קישור לתמונה" />
+                        <span class="image fit"><img src="../images/pic06.jpg" ng-src="{{imagePath}}" name="imagePath" id="imagePath" alt="" /></span>
+                    </div>
+                    <div class="participants location">
+                        <h4>מיקום:</h4>
+                        <input type="text" ng-model="activityLocation" ng-model="location" id="location" name="location" placeholder="חפש..." style="width: 65%; float: right" />
+                        <input ng-click="searchOnMap(activityLocation)" type="button" value="חפש במפה"/>
+                        <div id="map" style="height: 400px"></div>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" value="הוסף אירוע" class="update" />
+        </form>
     </div>
 </section>

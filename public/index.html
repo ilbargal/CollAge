@@ -26,6 +26,25 @@
         <script src='../js/fullcalendar-2.7.1/fullcalendar.min.js'></script>
         <script src='../js/fullcalendar-2.7.1/gcal.js'></script>
 
+        <!-- google maps -->
+        <script src="http://maps.google.com/maps/api/js"></script>
+        <script src="js/google/gmap/gmaps.core.js"></script>
+        <script src="js/google/gmap/gmaps.controls.js"></script>
+        <script src="js/google/gmap/gmaps.events.js"></script>
+        <script src="js/google/gmap/gmaps.markers.js"></script>
+        <script src="js/google/gmap/gmaps.utils.js"></script>
+
+        <!-- Alertify.js -->
+        <script src="//cdn.jsdelivr.net/alertifyjs/1.7.0/alertify.min.js"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.7.0/css/alertify.min.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.7.0/css/themes/default.min.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.7.0/css/themes/semantic.min.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.7.0/css/themes/bootstrap.min.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.7.0/css/alertify.rtl.min.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.7.0/css/themes/default.rtl.min.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.7.0/css/themes/semantic.rtl.min.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.7.0/css/themes/bootstrap.rtl.min.css"/>
+
         <script type="text/javascript" src="../components/ratingStars/rating.directive.js"></script>
         <script type="text/javascript" src="../components/activity/activity.directive.js"></script>
 
@@ -57,9 +76,10 @@
                 <ul>
                     <li><img src="images/logo.png" class="logo" width="50" height="50" /></li>
                     <li><h1><a href="#/main">CollAge</a></h1></li>
-                    <li ng-if="auth.profile.picture"><i class="icon big rounded"><img ng-src="{{auth.profile.picture}}" style="border-radius:30px" /></i></li>
+                    <li ng-if="auth.profile.picture"><i class="icon big rounded"><img ng-src="{{auth.profile.picture}}" style="border-radius:30px; width: 100%; height: 100%" /></i></li>
                     <li ng-if="auth.profile.name"><h1>שלום {{auth.profile.name}}</h1></li>
                 </ul>
+
             </nav>
             <nav id="navLeft">
                 <ul>
@@ -79,7 +99,7 @@
             <ul class="actions">
                 <li>
                     <a ng-click="signin()" ng-if="!auth.isAuthenticated" class="button big"><span class="icon-login"></span> משתמש קיים</a>
-                    <a href="#" ng-if="!auth.isAuthenticated" class="button big"><span> משתמש חדש</span></a>
+                    <a ng-click="signup()" ng-if="!auth.isAuthenticated" class="button big"><span> משתמש חדש</span></a>
                     <a href="#/calendar" ng-if="auth.isAuthenticated" class="button big">ללוח השנה שלי</a>
                 </li>
             </ul>

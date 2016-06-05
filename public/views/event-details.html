@@ -6,11 +6,16 @@
                 <p class="align-right">{{event.datetime}} <span class="icon big icon-clock2" style="float:right;"></span></p>
                 <p class="align-right">{{event.location}} <span class="icon big icon-location-pin" style="float:right;"></span></p>
                 <p class="align-right">על האירוע: {{event.description}}</p>
-
                 <!--<div ng-controller="RatingController as rating">-->
                     <!--<div star-rating ng-model="rating.rating1" max="10" on-rating-select="rating.rateFunction(rating)"></div>-->
                     <!--<star-rating ng-model="rating.rating2" readonly="rating.isReadonly"></star-rating>-->
                 <!--</div>-->
+                <div class="row">
+                    <p class="align-right">קטגוריות: </p>
+                    <ul>
+                        <li ng-repeat="category in event.categories"><label>{{category.name}}</label></li>
+                    </ul>
+                </div>
 
                 <div class="row">
                     <p class="align-right">משתתפים: </p>
