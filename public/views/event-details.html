@@ -3,13 +3,10 @@
         <div class="row uniform 50%">
             <div class="6u 12u$(small)">
                 <h2 class="align-right">{{event.name}}</h2>
-                <p class="align-right">{{event.datetime}} <span class="icon big icon-clock2" style="float:right;"></span></p>
-                <p class="align-right">{{event.location}} <span class="icon big icon-location-pin" style="float:right;"></span></p>
-                <p class="align-right">על האירוע: {{event.description}}</p>
-                <!--<div ng-controller="RatingController as rating">-->
-                    <!--<div star-rating ng-model="rating.rating1" max="10" on-rating-select="rating.rateFunction(rating)"></div>-->
-                    <!--<star-rating ng-model="rating.rating2" readonly="rating.isReadonly"></star-rating>-->
-                <!--</div>-->
+                <h5 class="align-right">{{event.datetime}} <span class="icon big icon-clock2" style="float:right;"></span></h5>
+                <p class="align-right"><u>על האירוע:</u> {{event.description}}</p>
+
+
                 <div class="row">
                     <p class="align-right">קטגוריות: </p>
                     <ul>
@@ -27,17 +24,17 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="6u 12u$(small) event-more-information">
-                <div class="4u 6u$(small)">
-                    <img src="{{event.imagePath}}" style="width: 50%;" />
+            <div class="6u 12u$(small)">
+                <div class="participants">
+                    <span class="image fit"><img src="{{event.imagePath}}" style="width: 50%;" /></span>
                 </div>
+                <p class="align-right">{{event.location}} <span class="icon big icon-location-pin" style="float:right;"></span></p>
+                <div id="eventMap" style="height: 400px"></div>
             </div>
         </div>
         <!-- Status bar -->
         <div class="row uniform 50%">
             <div class="container">
-
                 <i class="icon big rounded fa-user event-status status-ok" ng-click="changeEventStatus('ok')">vv</i>
                 <i class="icon big rounded fa-user event-status status-maybe" ng-click="changeEventStatus('maybe')"></i>
                 <i class="icon big rounded fa-user event-status status-decline" ng-click="changeEventStatus('decline')"></i>

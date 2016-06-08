@@ -8,7 +8,6 @@
 
         <class>models.Categories</class>
         <class>models.Events</class>
-        <class>models.EventsStatus</class>
         <class>models.Friends</class>
         <class>models.Jobs</class>
         <class>models.Users</class>

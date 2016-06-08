@@ -87,7 +87,7 @@
                     <li><a href="#/profile" ng-if="auth.isAuthenticated"><i class="fa fa-user"></i> אזור אישי</a></li>
                     <li><a href="#/new-activity" ng-if="auth.isAuthenticated"><i class="icon-circle-with-plus"></i> הוסף אירוע</a></li>
                     <li><a href="#/calendar" ng-if="auth.isAuthenticated"><i class="icon-calendar"></i> הלוח שלי</a></li>
-                    <li><a href="#/main" ng-click="signout()" ng-if="auth.isAuthenticated"><i class="fa fa-sign-out"></i> התנתק</a></li>
+                    <li><a ng-click="signout()" ng-if="auth.isAuthenticated"><i class="fa fa-sign-out"></i> התנתק</a></li>
                 </ul>
             </nav>
         </header>

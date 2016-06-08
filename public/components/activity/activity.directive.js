@@ -31,7 +31,10 @@
                      },
                     replace: true,
                     templateUrl: 'components/activity/activity.html',
-                    controller: ['$scope', 'eventService', function($scope, eventService) {
+                    controller: ['$scope', '$location', 'eventService', function($scope, $location, eventService) {
+                        $scope.showFullEvent = function(id) {
+                            $location.path('/event/' + id);
+                        }
                     }],
                     link: function ($scope, element, attrs) {
                         var activity = $scope.ngModel;
@@ -42,5 +45,5 @@
         };
     };
 
-    angular.module('collAgeDirectives',[]).service('eventService', eventService).directive('eventPreview', eventPreviewDirective);
+    angular.module('collAgeDirectives',['ngRoute']).service('eventService', eventService).directive('eventPreview', eventPreviewDirective);
 }());
