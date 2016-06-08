@@ -68,5 +68,15 @@ public class DataBaseHandler {
 
         return results;
     }
+
+    public <T> void update(T obj) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("collageUnit");
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        em.merge(obj);
+        em.getTransaction().commit();
+        em.close();
+    }
 }
 

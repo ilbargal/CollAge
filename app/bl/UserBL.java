@@ -24,11 +24,6 @@ public class UserBL {
         return null;
     }
 
-    public boolean isUserExistsWithEmail(String email) {
-        // TODO: return it
-        return false;
-    }
-
     public boolean checkUserValidation (Users usr) {
         return false;
     }
@@ -40,6 +35,6 @@ public class UserBL {
 
     public void saveUser(Users myUser) {
 
-        DataBaseHandler.getInstance().Persist(myUser);
+        DataBaseHandler.getInstance().update(myUser);
     }
 }

@@ -49,10 +49,8 @@ public class UsersController extends Controller {
         try {
             Form<Users> signUpForm = formFactory.form(Users.class).bindFromRequest();
             Users savedUser = signUpForm.get();
-            savedUser.setPassword("1234");
             UserBL.getInstance().saveUser(savedUser);
 
-            // TODO: password always change to 1234 -
         }
         catch (Exception e) {
             return internalServerError(e.toString());
