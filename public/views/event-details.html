@@ -21,10 +21,7 @@
                 <div class="row">
                     <p class="align-right">משתתפים: </p>
                     <ul style="float:left;">
-                        <li><i class="icon rounded icon-user"></i></li>
-                        <li><i class="icon rounded icon-user"></i></li>
-                        <li><i class="icon rounded icon-user"></i></li>
-                        <li><i class="icon rounded icon-user"></i></li>
+                        <li ng-repeat="user in event.users" title="{{user.firstName}} {{user.lastName}}"><i class="icon big rounded"><img ng-src="{{user.profilePic}}" style="border-radius:30px; width: 100%; height: 100%" /></i></li>
                     </ul>
                 </div>
             </div>

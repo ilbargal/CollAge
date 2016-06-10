@@ -1,5 +1,7 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -200,11 +202,13 @@ public class Users {
         this.description = description;
     }
 
-    @ManyToMany
-    @JoinTable(name = "users_to_events",
-            schema = "collage",
-            joinColumns = @JoinColumn(name = "user_mail", referencedColumnName = "mail", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false))
+//    @ManyToMany
+//    @JoinTable(name = "users_to_events",
+//            schema = "collage",
+//            joinColumns = @JoinColumn(name = "user_mail", referencedColumnName = "mail", nullable = false),
+//            inverseJoinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false))
+    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
     public Collection<Events> getEvents() {
         return events;
     }

@@ -171,7 +171,7 @@ public class Events {
         categories = myCategories;
     }
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(name = "users_to_events",
             schema = "collage",
             joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false),
