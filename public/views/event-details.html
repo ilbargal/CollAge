@@ -1,8 +1,12 @@
 <section id="one" class="wrapper align-center">
+
     <div class="container">
+        <header class="major">
+            <h2><i class="fa fa-calendar"></i> {{event.name}}</h2>
+        </header>
+
         <div class="row uniform 50%">
             <div class="6u 12u$(small)">
-                <h2 class="align-right">{{event.name}}</h2>
                 <h5 class="align-right">{{event.datetime}} <span class="icon big icon-clock2" style="float:right;"></span></h5>
                 <p class="align-right"><u>על האירוע:</u> {{event.description}}</p>
 
@@ -33,12 +37,10 @@
             </div>
         </div>
         <!-- Status bar -->
-        <div class="row uniform 50%">
-            <div class="container">
-                <i class="icon big rounded fa-user event-status status-ok" ng-click="changeEventStatus('ok')">vv</i>
-                <i class="icon big rounded fa-user event-status status-maybe" ng-click="changeEventStatus('maybe')"></i>
-                <i class="icon big rounded fa-user event-status status-decline" ng-click="changeEventStatus('decline')"></i>
-            </div>
+        <div class="container">
+            <input type="button" class="status-ok" value="הולך" />
+            <input type="button" class="status-maybe" value="מתלבט" />
+            <input type="button" class="status-decline" value="לא מעוניין" />
         </div>
     </div>
 </section>

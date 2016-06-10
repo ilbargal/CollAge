@@ -15,7 +15,7 @@ public class CategoryBL {
     }
 
     private CategoryBL() {
-        initCategoryIndex();
+        //initCategoryIndex();
     }
 
     private void initCategoryIndex() {

@@ -1163,15 +1163,15 @@
 }
 
     .status-ok {
-        background-color: #42b972;
+        background-color: #42b972 !important;
         border: 1px solid #42b972 !important;
     }
     .status-maybe {
-        background-color: #FF981A;
+        background-color: #FF981A !important;
         border: 1px solid #FF981A !important;
     }
     .status-decline {
-        background-color: rgba(255, 70, 0, 0.98);
+        background-color: rgba(255, 70, 0, 0.98) !important;
         border: 1px solid rgba(255, 70, 0, 0.98) !important;
     }
 

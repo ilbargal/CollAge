@@ -1,6 +1,8 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import play.data.format.Formats;
 
@@ -156,11 +158,11 @@ public class Events {
         this.imagePath = imagePath;
     }
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(name = "catagories_to_events",
             schema = "collage",
             joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false))
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", table = "CATEGORIES",nullable = false))
     public Collection<Categories> getCategories() {
         return categories;
     }

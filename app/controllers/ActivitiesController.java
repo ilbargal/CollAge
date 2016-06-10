@@ -43,8 +43,6 @@ public class ActivitiesController extends Controller {
         try {
             Form<Events> addActivityForm = formFactory.form(Events.class).bindFromRequest();
             Events newEvent = addActivityForm.get();
-            Collection<Categories> categories = new ArrayList<Categories>();
-            newEvent.setCategories(categories);
             EventBL.getInstance().addEvent(newEvent);
             id = newEvent.getId();
         }

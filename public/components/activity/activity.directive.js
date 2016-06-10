@@ -1,7 +1,7 @@
 (function () {
     var eventService = function($http) {
         return {
-            events: function () {
+            getAllEvents: function () {
                 return $http.get("/getAllEvents");
             },
             getEventById: function(id) {
