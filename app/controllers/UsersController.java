@@ -60,4 +60,11 @@ public class UsersController extends Controller {
 
         return ok("Success");
     }
+
+    public Result joinActivity(String userId, String eventId){
+        
+
+
+        return ok("Success");
+    }
 }

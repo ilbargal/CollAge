@@ -106,7 +106,7 @@
 		color: #666;
 		font-weight: 300;
 		line-height: 1em;
-		margin: 0 0 1em 0;
+		/*margin: 0 0 1em 0;*/
 		font-family: 'Alef', 'sans-serif';
 	}
 
@@ -928,6 +928,8 @@
 				margin: 0;
 				padding-right: 0;
 				direction: rtl;
+				text-align: left;
+				width: 100%;
 			}
 
 				#header nav > ul > li {
@@ -966,6 +968,7 @@
 
 					#navLeft > ul > li:first-child {
 						margin-right: 0;
+						float: right;
 					}
 
 					#navRight > ul > li:first-child {

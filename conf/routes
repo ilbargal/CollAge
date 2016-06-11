@@ -11,6 +11,8 @@ POST    /addActivity                    controllers.ActivitiesController.addActi
 #POST    /person                        controllers.Application.addPerson()
 #GET     /persons                       controllers.Application.getPersons
 
+# Activities
+
 
 # Categories:
 GET     /getAllCategories               controllers.CategoriesController.getAllCategories()
