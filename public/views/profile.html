@@ -24,24 +24,14 @@
 
                 <div class="typeSection">
                     <div class="4u 12u$(small)">
-                        <input type="radio" id="private"  ng-model="profile.type" name="type" ng-checked="profile.type == '0'">
+                        <input type="radio" id="private"  ng-model="profile.type" name="type" ng-checked="profile.type == '0'" value="0">
                         <label for="private">פרטי</label>
-                        <input type="radio" id="public"  ng-model="profile.type" name="type" ng-checked="profile.type == '1'">
+                        <input type="radio" id="public"  ng-model="profile.type" name="type" ng-checked="profile.type == '1'" value="1">
                         <label for="public">ציבורי</label>
                     </div>
                 </div>
 
-                <div class="genderSection">
-                    <div class="4u 12u$(small)">
-                        <input type="radio" id="male" ng-model="profile.gender" name="gender" ng-checked="profile.gender == '0'">
-                        <label for="male">זכר</label>
-                        <input type="radio" id="female" ng-model="profile.gender" name="gender" ng-checked="profile.gender == '1'">
-                        <label for="female">נקבה</label>
-                    </div>
-                </div>
-
-                <div
-                    ng-if="profile.gender == '0'">
+                <div  ng-if="profile.type == '0'">
 
                     <h3>פרטים אישיים</h3>
                     <!-- Personal Details -->
