@@ -18,6 +18,7 @@ import java.util.Collection;
 public class Users {
     private String mail;
     private String password;
+    private String type;
     private String firstName;
     private String lastName;
     private String gender;
@@ -50,6 +51,14 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Basic
+    @Column(name = "type")
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) { this.type = type; }
 
     @Basic
     @Column(name = "first_name")
