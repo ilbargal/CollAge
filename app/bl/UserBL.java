@@ -2,6 +2,8 @@ package bl;
 import common.DataBaseHandler;
 import models.Users;
 
+import javax.xml.crypto.Data;
+
 public class UserBL {
     private static UserBL _instance;
 
@@ -22,6 +24,10 @@ public class UserBL {
     public Users getUser(String email, String password) {
         // TODO: get user from DB
         return null;
+    }
+
+    public Users getUser(String email) {
+        return DataBaseHandler.getInstance().singleQueryById("findUserByEmail", "email", email);
     }
 
     public boolean isUserExistsWithEmail(String email) {

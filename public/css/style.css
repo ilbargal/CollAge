@@ -70,7 +70,7 @@
 		background: #fff;
 	}
 
-	body, input, select, textarea {
+	body, input, select, textarea, button {
 		color: #444;
 		font-family: 'Alef', sans-serif;
 		font-size: 15pt;
@@ -1165,14 +1165,20 @@
     .status-ok {
         background-color: #42b972 !important;
         border: 1px solid #42b972 !important;
+		color: white;
+		border-radius: 4px;
     }
     .status-maybe {
         background-color: #FF981A !important;
         border: 1px solid #FF981A !important;
+		color: white;
+		border-radius: 4px;
     }
     .status-decline {
         background-color: rgba(255, 70, 0, 0.98) !important;
         border: 1px solid rgba(255, 70, 0, 0.98) !important;
+		color: white;
+		border-radius: 4px;
     }
 
 

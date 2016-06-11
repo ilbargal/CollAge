@@ -3,9 +3,11 @@ package bl;
 import ch.qos.logback.classic.db.DBHelper;
 import common.DataBaseHandler;
 import models.Events;
+import models.Users;
 
 import java.awt.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EventBL {
@@ -35,6 +37,10 @@ public class EventBL {
 
     public void addEvent(Events evt) {
         evt.setStatus(1);
+        Users ownerUser = UserBL.getInstance().getUser(evt.getOwner());
+        ArrayList<Users> users = new ArrayList<Users>();
+        users.add(ownerUser);
+        evt.setUsers(users);
         DataBaseHandler.getInstance().Persist(evt);
     }
 }
