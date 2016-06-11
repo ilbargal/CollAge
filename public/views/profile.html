@@ -21,27 +21,16 @@
                            value="profile.password" placeholder="סיסמה" />
                 </div>
                 <br>
-                <h3>פרטים אישיים</h3>
-                <!-- Personal Details -->
 
-                <div class="3u 5u$(xsmall)">
-                    <input type="text" name="firstname" id="firstname" ng-model="profile.firstname"  placeholder="שם פרטי"/>
+                <div class="typeSection">
+                    <div class="4u 12u$(small)">
+                        <input type="radio" id="private"  ng-model="profile.type" name="type" ng-checked="profile.type == '0'">
+                        <label for="private">פרטי</label>
+                        <input type="radio" id="public"  ng-model="profile.type" name="type" ng-checked="profile.type == '1'">
+                        <label for="public">ציבורי</label>
+                    </div>
                 </div>
 
-                <div style="float:left" class="4u">
-                    <h4>קישור לתמונה:</h4>
-                    <input type="text" ng-model="profile.picture"  placeholder="הכנס קישור לתמונה" />
-                    <span class="image fit">
-                        <img src="../images/pic06.jpg" ng-src="{{profile.picture}}"
-                                                 name="profilePic" id="profilePic" alt=""/>
-                    </span>
-                </div>
-
-                <br>
-                <div class="3u 5u$(xsmall)">
-                    <input type="text" name="lastname" id="lastname" ng-model="profile.lastname" placeholder="שם משפחה"/>
-                </div>
-                <br>
                 <div class="genderSection">
                     <div class="4u 12u$(small)">
                         <input type="radio" id="male" ng-model="profile.gender" name="gender" ng-checked="profile.gender == '0'">
@@ -50,38 +39,73 @@
                         <label for="female">נקבה</label>
                     </div>
                 </div>
-                <br>
-                <div class="birthday">
-                    <h4>תאריך לידה:</h4>
-                    <input type="date" ng-model="date" name="birthday" id="birthday"/>
-                </div>
-                <br>
-                <div class="3u 5u$(xsmall)">
-                    <input type="text" name="address" ng-model="profile.address" id="address"
-                     placeholder="כתובת"/>
-                </div>
-                <br>
-                <div class="3u 5u$(xsmall)">
-                    <input type="text" name="phone" ng-model="profile.phone" id="phone"
-                           placeholder="פלאפון"/>
-                </div>
-                <br>
-                <div class="3u$">
-                    <div class="select-wrapper">
-                        <select dir="rtl" name="job" id="job" ng-model="profile.job" placeholder="--מקצוע--">
-                            <option value="">- מקצוע - </option>
-                            <option value="צייר">צייר</option>
-                            <option value="מתכנת">מתכנת</option>
-                            <option value="מנהל">מנהל</option>
-                            <option value="מהנדס">מהנדס</option>
-                        </select>
+
+                <div
+                    ng-if="profile.gender == '0'">
+
+                    <h3>פרטים אישיים</h3>
+                    <!-- Personal Details -->
+
+                    <div class="3u 5u$(xsmall)">
+                        <input type="text" name="firstname" id="firstname" ng-model="profile.firstname"  placeholder="שם פרטי"/>
                     </div>
-                </div>
-                <br>
-                <br>
-                <div class="12u$">
+
+                    <div style="float:left" class="4u">
+                        <h4>קישור לתמונה:</h4>
+                        <input type="text" ng-model="profile.picture"  placeholder="הכנס קישור לתמונה" />
+                    <span class="image fit">
+                        <img src="../images/pic06.jpg" ng-src="{{profile.picture}}"
+                             name="profilePic" id="profilePic" alt=""/>
+                    </span>
+                    </div>
+
+                    <br>
+                    <div class="3u 5u$(xsmall)">
+                        <input type="text" name="lastname" id="lastname" ng-model="profile.lastname" placeholder="שם משפחה"/>
+                    </div>
+                    <br>
+                    <div class="genderSection">
+                        <div class="4u 12u$(small)">
+                            <input type="radio" id="male" ng-model="profile.gender" name="gender" ng-checked="profile.gender == '0'">
+                            <label for="male">זכר</label>
+                            <input type="radio" id="female" ng-model="profile.gender" name="gender" ng-checked="profile.gender == '1'">
+                            <label for="female">נקבה</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="birthday">
+                        <h4>תאריך לידה:</h4>
+                        <input type="date" ng-model="date" name="birthday" id="birthday"/>
+                    </div>
+                    <br>
+                    <div class="3u 5u$(xsmall)">
+                        <input type="text" name="address" ng-model="profile.address" id="address"
+                               placeholder="כתובת"/>
+                    </div>
+                    <br>
+                    <div class="3u 5u$(xsmall)">
+                        <input type="text" name="phone" ng-model="profile.phone" id="phone"
+                               placeholder="פלאפון"/>
+                    </div>
+                    <br>
+                    <div class="3u$">
+                        <div class="select-wrapper">
+                            <select dir="rtl" name="job" id="job" ng-model="profile.job" placeholder="--מקצוע--">
+                                <option value="">- מקצוע - </option>
+                                <option value="צייר">צייר</option>
+                                <option value="מתכנת">מתכנת</option>
+                                <option value="מנהל">מנהל</option>
+                                <option value="מהנדס">מהנדס</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="12u$">
                     <textarea dir="rtl" name="description" id="description"
                               ng-model="profile.description" placeholder="קצת עלי..." rows="6"></textarea>
+                    </div>
+
                 </div>
 
                 <br>
