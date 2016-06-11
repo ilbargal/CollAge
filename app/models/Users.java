@@ -216,7 +216,7 @@ public class Users {
 //            schema = "collage",
 //            joinColumns = @JoinColumn(name = "user_mail", referencedColumnName = "mail", nullable = false),
 //            inverseJoinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id", nullable = false))
-    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
     @JsonBackReference
     public Collection<Events> getEvents() {
         return events;

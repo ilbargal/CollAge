@@ -1,21 +1,25 @@
 package controllers;
 import bl.CategoryBL;
 import bl.EventBL;
+import bl.UserBL;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
+import common.DataBaseHandler;
 import common.Utils;
 import models.Categories;
 import models.Events;
 import models.Users;
+import org.h2.engine.User;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import javax.xml.crypto.Data;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class ActivitiesController extends Controller {
 
@@ -50,5 +54,33 @@ public class ActivitiesController extends Controller {
             return internalServerError(e.toString());
         }
         return ok(id.toString());
+    }
+
+    public Result saveEventStatus() {
+        JsonNode detailsFromClient = request().body().asJson();
+        Integer eventId = detailsFromClient.get("eventId").asInt();
+        final String userEmail = detailsFromClient.get("userMail").asText();
+        Integer status = detailsFromClient.get("statusCode").asInt();
+
+        try {
+            final Events currEvent = EventBL.getInstance().getEventById(eventId);
+
+            Users[] allUsersofEvent = (Users[]) currEvent.getUsers().toArray(new Users[]{});
+            Users currUser = Arrays.stream(allUsersofEvent)
+                                        .filter(x -> x.getMail().equals(userEmail))
+                                        .findFirst().orElse(null);
+            if (currUser == null) {
+                currUser = UserBL.getInstance().getUser(userEmail);
+                currEvent.getUsers().add(currUser);
+            }
+
+            // Save DB
+            EventBL.getInstance().saveEventWithStatus(currEvent, userEmail, status);
+
+        }
+        catch (Exception e) {
+            return internalServerError(e.toString());
+        }
+        return ok();
     }
 }

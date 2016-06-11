@@ -29,6 +29,7 @@ public class DataBaseHandler {
         List<T> list= em.createNamedQuery(qry).getResultList();
 
         em.close();
+        emf.close();
         return list;
     }
 
@@ -39,6 +40,7 @@ public class DataBaseHandler {
         T obj= (T)em.createNamedQuery(qry).setParameter(propName, id).getSingleResult();
 
         em.close();
+        emf.close();
         return obj;
     }
 
@@ -53,6 +55,34 @@ public class DataBaseHandler {
         em.close();
     }
 
+    public <T> void UpdateQuery(String updateQuery, Object... params) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("collageUnit");
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        Query query = em.createNativeQuery(updateQuery);
+
+        int index = 0;
+        for (Object param : params) {
+            query.setParameter(index, param);
+            index++;
+        }
+        query.executeUpdate();
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    public <T> void Merge(T obj) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("collageUnit");
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        em.merge(obj);
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
+    }
+
     public <T> T queryByParams(String qry, Object ...params) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("collageUnit");
         EntityManager em = emf.createEntityManager();
@@ -65,6 +95,7 @@ public class DataBaseHandler {
         T results = (T) q.getResultList();
 
         em.close();
+        emf.close();
 
         return results;
     }

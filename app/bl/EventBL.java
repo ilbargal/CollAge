@@ -4,7 +4,12 @@ import ch.qos.logback.classic.db.DBHelper;
 import common.DataBaseHandler;
 import models.Events;
 import models.Users;
+import org.hibernate.dialect.MySQL5InnoDBDialect;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.awt.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -42,5 +47,20 @@ public class EventBL {
         users.add(ownerUser);
         evt.setUsers(users);
         DataBaseHandler.getInstance().Persist(evt);
+    }
+
+    public void saveEventWithStatus(Events currEvent, String userMail, Integer status)
+    {
+        // Save user without status of event
+        DataBaseHandler.getInstance().Merge(currEvent);
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("collageUnit");
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        Query query = em.createNamedQuery("update collage.users_to_events set status = " + status + " where user_mail = '" + userMail + "' and event_id = " + currEvent.getId());
+        query.executeUpdate();
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
     }
 }

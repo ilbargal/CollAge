@@ -8,6 +8,7 @@ GET     /getAllEvents                   controllers.ActivitiesController.getAllA
 GET     /getEvent/:id                   controllers.ActivitiesController.getActivity(id: String)
 GET     /getUsers                       controllers.MainController.getUsers()
 POST    /addActivity                    controllers.ActivitiesController.addActivity()
+POST    /saveEventStatus                controllers.ActivitiesController.saveEventStatus()
 #POST    /person                        controllers.Application.addPerson()
 #GET     /persons                       controllers.Application.getPersons
 
