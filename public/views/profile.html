@@ -56,9 +56,9 @@
                     <br>
                     <div class="genderSection">
                         <div class="4u 12u$(small)">
-                            <input type="radio" id="male" ng-model="profile.gender" name="gender" ng-checked="profile.gender == '0'">
+                            <input type="radio" id="male" ng-model="profile.gender" name="gender" ng-checked="profile.gender == '0'" value="0">
                             <label for="male">זכר</label>
-                            <input type="radio" id="female" ng-model="profile.gender" name="gender" ng-checked="profile.gender == '1'">
+                            <input type="radio" id="female" ng-model="profile.gender" name="gender" ng-checked="profile.gender == '1'" value="1">
                             <label for="female">נקבה</label>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                     <br>
                     <div class="3u 5u$(xsmall)">
                         <input type="text" name="phone" ng-model="profile.phone" id="phone"
-                               placeholder="פלאפון"/>
+                               placeholder="טלפון"/>
                     </div>
                     <br>
                     <div class="3u$">
@@ -94,6 +94,44 @@
                     <div class="12u$">
                     <textarea dir="rtl" name="description" id="description"
                               ng-model="profile.description" placeholder="קצת עלי..." rows="6"></textarea>
+                    </div>
+
+                </div>
+
+                <div  ng-if="profile.type == '1'">
+
+                    <h3>פרטים אישיים</h3>
+                    <!-- Personal Details -->
+
+                    <div class="3u 5u$(xsmall)">
+                        <input type="text" name="firstname" id="publicName" ng-model="profile.firstname"  placeholder="שם"/>
+                    </div>
+
+                    <div style="float:left" class="4u">
+                        <h4>קישור לתמונה:</h4>
+                        <input type="text" ng-model="profile.picture"  placeholder="הכנס קישור לתמונה" />
+                    <span class="image fit">
+                        <img src="../images/pic06.jpg" ng-src="{{profile.picture}}"
+                             name="profilePic" id="publicProfilePic" alt=""/>
+                    </span>
+                    </div>
+
+                    <br>
+
+                    <div class="3u 5u$(xsmall)">
+                        <input type="text" name="address" ng-model="profile.address" id="publicAddress"
+                               placeholder="כתובת"/>
+                    </div>
+                    <br>
+                    <div class="3u 5u$(xsmall)">
+                        <input type="text" name="phone" ng-model="profile.phone" id="publicPhone"
+                               placeholder="טלפון"/>
+                    </div>
+
+                    <br>
+                    <div class="12u$">
+                    <textarea dir="rtl" name="description" id="publicDescription"
+                              ng-model="profile.description" placeholder="...קצת עלינו" rows="6"></textarea>
                     </div>
 
                 </div>
