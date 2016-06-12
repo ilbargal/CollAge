@@ -90,6 +90,18 @@
                         </div>
                     </div>
                     <br>
+
+
+                    <div class="participants category">
+                        <h4>קטגוריות:</h4>
+                        <!--<select size="5" id="mycategories" multiple ng-multiple="true" ng-model="selectedCategories" ng-options="c.name for c in allCategories" style="height: 100%"></select>-->
+                        <multiple-autocomplete ng-model="profile.selectedCategories"
+                                               suggestions-arr="allCategories"
+                                               object-property="name">
+                        </multiple-autocomplete>
+                    </div>
+
+                    <br>
                     <br>
                     <div class="12u$">
                     <textarea dir="rtl" name="description" id="description"
