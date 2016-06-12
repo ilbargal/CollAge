@@ -31,6 +31,7 @@
                     </div>
                 </div>
 
+
                 <!-- pricture and location -->
                 <div class="6u 12u$(small)">
                     <div class="participants">
@@ -40,7 +41,7 @@
                     </div>
                     <div class="participants location">
                         <h4>מיקום:</h4>
-                        <input type="text" ng-model="activityLocation" ng-model="location" id="location" name="location" placeholder="חפש..." style="width: 65%; float: right" />
+                        <input type="text" ng-model="activityLocation" ng-model="location" id="location" name="location" placeholder="חפש..." ng-autocomplete="activityLocation" details="details1" options="options1" style="width: 65%; float: right" />
                         <input ng-click="searchOnMap(activityLocation)" type="button" value="חפש במפה"/>
                         <div id="map" style="height: 400px"></div>
                     </div>
