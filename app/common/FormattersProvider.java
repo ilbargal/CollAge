@@ -7,6 +7,7 @@ import play.i18n.MessagesApi;
 import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Locale;
@@ -31,21 +32,21 @@ public class FormattersProvider implements Provider<Formatters> {
     public Formatters get() {
         Formatters formatters = new Formatters(messagesApi);
 
-        formatters.register(Timestamp.class, new SimpleFormatter<Timestamp>() {
+        formatters.register(Date.class, new SimpleFormatter<Date>() {
 
             @Override
-            public Timestamp parse(String input, Locale l) throws ParseException {
+            public Date parse(String input, Locale l) throws ParseException {
 
                 // Birthday fix
                 String birthDayStr =  input;
-                birthDayStr = birthDayStr.substring(0, birthDayStr.indexOf('T')) + " 00:00:00";
-                Timestamp birthDay = Timestamp.valueOf(birthDayStr);
+                birthDayStr = birthDayStr.substring(0, birthDayStr.indexOf('T'));
+                Date birthDay = Date.valueOf(birthDayStr);
 
                 return birthDay;
             }
 
             @Override
-            public String print(Timestamp localTime, Locale l) {
+            public String print(Date localTime, Locale l) {
                 return localTime.toString();
             }
 
