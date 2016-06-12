@@ -189,7 +189,7 @@ public class Users {
         return result;
     }
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(name = "users_to_categories",
             schema = "collage",
             joinColumns = @JoinColumn(name = "user_mail", referencedColumnName = "mail", nullable = false),

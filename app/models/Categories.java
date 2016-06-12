@@ -78,6 +78,7 @@ public class Categories {
 
 
     @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
     public Collection<models.Users> getUsers() {
         return Users;
     }

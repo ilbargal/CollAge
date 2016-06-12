@@ -7,21 +7,37 @@
         </header>
 
         <form ng-submit="addActivity()">
+
             <div class="row uniform 50%">
+
                 <!-- event textboxes -->
                 <div class="6u 12u$(small)">
                     <div class="participants">
                         <h4>שם הפעילות:</h4>
                         <input type="text" ng-model="activityName" maxlength="30" id="name" name="name" placeholder="שם הפעילות" />
                     </div>
+                    <br>
                     <div class="participants">
                         <h4>תיאור קצר:</h4>
-                        <textarea rows="3" ng-model="activityDescription" id="description" name="description" placeholder="תיאור"></textarea>
+                        <textarea rows="9" ng-model="activityDescription" id="description" name="description" placeholder="תיאור"></textarea>
                     </div>
+
+                    <br>
+                    <div class="12u 12u$(small)">
+                        <h4>קישור לתמונה:</h4>
+                        <input type="text" ng-model="imagePath"  placeholder="הכנס קישור לתמונה" />
+                        <br>
+                        <span class="image fit">
+                            <img src="../images/pic06.jpg" ng-src="{{imagePath}}" name="image" id="image" alt="" />
+                        </span>
+                    </div>
+
+                    <br>
                     <div class="participants">
                         <h4>תאריך:</h4>
                         <input type="datetime-local" ng-model="activityDatetime" name="datetime" id="datetime" value=""/>
                     </div>
+                    <br>
                     <div class="participants category">
                         <h4>קטגוריות:</h4>
                         <!--<select size="5" id="mycategories" multiple ng-multiple="true" ng-model="selectedCategories" ng-options="c.name for c in allCategories" style="height: 100%"></select>-->
@@ -30,19 +46,7 @@
                                                object-property="name">
                         </multiple-autocomplete>
                     </div>
-                    <div class="participants">
-                        <div class="participants">משתתפים:</div>
-                    </div>
-                </div>
-
-
-                <!-- pricture and location -->
-                <div class="6u 12u$(small)">
-                    <div class="participants">
-                        <h4>קישור לתמונה:</h4>
-                        <input type="text" ng-model="imagePath"  placeholder="הכנס קישור לתמונה" />
-                        <span class="image fit"><img src="../images/pic06.jpg" ng-src="{{imagePath}}" name="imagePath" id="imagePath" alt="" /></span>
-                    </div>
+                    <br>
                     <div class="participants location">
                         <h4>מיקום:</h4>
                         <input type="text" ng-model="activityLocation" ng-model="location" id="location" name="location" placeholder="חפש..." ng-autocomplete="activityLocation" details="details1" options="options1" style="width: 65%; float: right" />
@@ -51,6 +55,10 @@
                     </div>
                 </div>
             </div>
+
+            <br>
+            <br>
+            <br>
             <input type="submit" value="הוסף אירוע" class="update" />
         </form>
     </div>
