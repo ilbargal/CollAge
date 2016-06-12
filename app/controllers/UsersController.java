@@ -38,11 +38,11 @@ public class UsersController extends Controller {
             Form<Users> updatedForm = formFactory.form(Users.class).bindFromRequest();
             Users updatedUser = updatedForm.get();
             UserBL.getInstance().updateUser(updatedUser);
+            return ok(Utils.convertObjectToJsonString(updatedUser));
         }
         catch (Exception e) {
             return internalServerError(e.toString());
         }
-        return ok("Success");
     }
 
     public Result joinActivity(String userId, String eventId){
