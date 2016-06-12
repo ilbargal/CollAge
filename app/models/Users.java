@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -28,7 +29,7 @@ public class Users {
     private String job;
     private String profilePic;
     private Timestamp cancelDate;
-    private Collection<Categories> categories;
+    private Collection<Categories> categories = new ArrayList<Categories>();
     private String description;
     private Collection<Events> events;
 

@@ -3,7 +3,6 @@
 angular.module( "ngAutocomplete", [])
     .directive('ngAutocomplete', function($parse) {
         return {
-
             scope: {
                 details: '=',
                 ngAutocomplete: '=',
@@ -11,7 +10,6 @@ angular.module( "ngAutocomplete", [])
             },
 
             link: function(scope, element, attrs, model) {
-
                 //options for autocomplete
                 var opts
 
