@@ -10,6 +10,7 @@ import javax.inject.Singleton;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 /**
@@ -50,6 +51,24 @@ public class FormattersProvider implements Provider<Formatters> {
                 return localTime.toString();
             }
 
+        });
+
+        formatters.register(Timestamp.class, new SimpleFormatter<Timestamp>() {
+            @Override
+            public Timestamp parse(String text, Locale locale) throws ParseException {
+                text = text.replace('T', ' ');
+                text = text.replace('Z', ' ');
+                SimpleDateFormat format = new SimpleDateFormat("YYYY-DD-MM HH:mm:ss.SSS");
+
+                Timestamp t = new Timestamp(format.parse(text).getTime());
+
+                return t;
+            }
+
+            @Override
+            public String print(Timestamp timestamp, Locale locale) {
+                return timestamp.toString();
+            }
         });
 
         return formatters;

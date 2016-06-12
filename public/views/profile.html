@@ -65,7 +65,7 @@
                     <br>
                     <div class="birthday">
                         <h4>תאריך לידה:</h4>
-                        <input type="date" ng-model="date" name="birthday" id="birthday"/>
+                        <input type="date" ng-model="profile.birthday" name="birthday" id="birthday"/>
                     </div>
                     <br>
                     <div class="3u 5u$(xsmall)">
@@ -89,6 +89,18 @@
                             </select>
                         </div>
                     </div>
+                    <br>
+
+
+                    <div class="participants category">
+                        <h4>קטגוריות:</h4>
+                        <!--<select size="5" id="mycategories" multiple ng-multiple="true" ng-model="selectedCategories" ng-options="c.name for c in allCategories" style="height: 100%"></select>-->
+                        <multiple-autocomplete ng-model="profile.selectedCategories"
+                                               suggestions-arr="allCategories"
+                                               object-property="name">
+                        </multiple-autocomplete>
+                    </div>
+
                     <br>
                     <br>
                     <div class="12u$">
