@@ -77,13 +77,13 @@
                 <ul  style="text-align: right">
                     <li><img src="images/logo.png" class="logo" width="50" height="50" /></li>
                     <li><h1><a href="#/main">CollAge</a></h1></li>
+                    <li ng-if="auth.profile.picture && auth.isAuthenticated"><i class="icon big rounded"><img ng-src="{{auth.profile.picture}}" style="border-radius:30px; width: 100%; height: 100%" /></i></li>
+                    <li ng-if="auth.profile.fullname && auth.isAuthenticated"><a>{{auth.profile.firstname}} {{auth.profile.lastname}}</a></li>
                 </ul>
 
             </nav>
             <nav id="navLeft" class="9u$">
                 <ul>
-                    <li ng-if="auth.profile.picture && auth.isAuthenticated"><i class="icon big rounded"><img ng-src="{{auth.profile.picture}}" style="border-radius:30px; width: 100%; height: 100%" /></i></li>
-                    <li ng-if="auth.profile.fullname && auth.isAuthenticated"><a>{{auth.profile.firstname}} {{auth.profile.lastname}}</a></li>
                     <li><a href="#/main">ראשי</a></li>
                     <li><a href="#/profile" ng-if="auth.isAuthenticated"><i class="fa fa-user"></i> אזור אישי</a></li>
                     <li><a href="#/new-activity" ng-if="auth.isAuthenticated"><i class="icon-circle-with-plus"></i> הוסף אירוע</a></li>

@@ -21,49 +21,31 @@ public class UsersController extends Controller {
     @Inject
     FormFactory formFactory;
 
-    public Result signup() throws JsonProcessingException {
-
-        Form<Users> signUpForm = formFactory.form(Users.class).bindFromRequest();
-
-        Users newUser = signUpForm.get();
-
-        // Todo: remove this. i just pust it here to bypass the null constraint
-
-        UserBL.getInstance().insertUser(newUser);
-
-
-        return ok("Success");
-
-//        try {
-//            Users users = new Users();
-//            JsonNode body = request().body().asJson().get("currUser");
-//
-//            return ok(Utils.convertObjectToJsonString(users));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return internalServerError(e.getStackTrace()[0].toString());
-//        }
-    }
-
     public Result saveUser() {
         try {
             Form<Users> signUpForm = formFactory.form(Users.class).bindFromRequest();
             Users savedUser = signUpForm.get();
             UserBL.getInstance().saveUser(savedUser);
-
-            // TODO: password always change to 1234 -
         }
         catch (Exception e) {
             return internalServerError(e.toString());
         }
+        return ok("Success");
+    }
 
+    public Result updateUser() {
+        try {
+            Form<Users> updatedForm = formFactory.form(Users.class).bindFromRequest();
+            Users updatedUser = updatedForm.get();
+            UserBL.getInstance().updateUser(updatedUser);
+        }
+        catch (Exception e) {
+            return internalServerError(e.toString());
+        }
         return ok("Success");
     }
 
     public Result joinActivity(String userId, String eventId){
-        
-
-
         return ok("Success");
     }
 }
