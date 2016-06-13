@@ -1,11 +1,13 @@
 package controllers;
 
 import bl.CategoryBL;
+import bl.UserBL;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.inject.Inject;
 import common.Utils;
 import models.Categories;
+import models.Users;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
@@ -28,6 +30,16 @@ public class CategoriesController extends Controller {
         try {
             List<Categories> categories = CategoryBL.getInstance().getAllCategories(content);
             return ok(Utils.convertObjectToJsonString(categories));
+        }
+        catch (Exception e) {
+            return internalServerError(e.toString());
+        }
+    }
+
+    public Result getUserCategories(String email) {
+        try {
+            Users ownerUser = UserBL.getInstance().getUser(email);
+            return ok(Utils.convertObjectToJsonString(ownerUser.getCategories()));
         }
         catch (Exception e) {
             return internalServerError(e.toString());

@@ -193,13 +193,13 @@ public class Users {
     @JoinTable(name = "users_to_categories",
             schema = "collage",
             joinColumns = @JoinColumn(name = "user_mail", referencedColumnName = "mail", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false))
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id", table = "CATEGORIES",nullable = false))
     public Collection<Categories> getCategories() {
         return categories;
     }
 
     public void setCategories(Collection<Categories> categories) {
-        categories = categories;
+        this.categories = categories;
     }
 
     @Basic

@@ -4,8 +4,18 @@
             getAllEvents: function () {
                 return $http.get("/getAllEvents");
             },
+            getRecommendedEvents: function(mail){
+                if (mail != undefined) {
+                    return $http.get("/getAllEvents/" + mail);
+                }
+
+                return $http.get("/getAllEvents");
+            },
             getEventById: function(id) {
                 return $http.get("/getEvent/" + id);
+            },
+            getUserCategories: function(email) {
+                return $http.get('/getUserCategories/' + email);
             },
             addEvent: function (activity) {
                 return $http.post("/addActivity", activity);

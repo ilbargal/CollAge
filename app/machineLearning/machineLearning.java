@@ -18,7 +18,7 @@ public class machineLearning {
 
     public static machineLearning getInstance(){
 
-        if (instance != null){
+        if (instance == null){
             instance = new machineLearning();
         }
 
@@ -54,6 +54,7 @@ public class machineLearning {
         // Create the list we are going to make our calaculations on
         for(Events e: events){
             mlEvent newE = new mlEvent(e);
+            mlEvents.add(newE);
         }
 
         // Make the calculations
@@ -65,6 +66,7 @@ public class machineLearning {
         ArrayList<Events> recEvents = new ArrayList<>();
 
         Collections.sort(mlEvents);
+        Collections.reverse(mlEvents);
 
         for (mlEvent e: mlEvents){
             Events event = e.getEvent();

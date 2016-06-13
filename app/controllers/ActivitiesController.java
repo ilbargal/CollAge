@@ -21,12 +21,30 @@ import javax.xml.crypto.Data;
 import java.util.*;
 import java.util.stream.Stream;
 
+import machineLearning.*;
+
 public class ActivitiesController extends Controller {
 
     public Result getAllActivities() throws JsonProcessingException {
 
         try {
             List<Events> events = EventBL.getInstance().getAllEvents();
+            return ok(Utils.convertObjectToJsonString(events));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return internalServerError(e.getStackTrace()[0].toString());
+        }
+    }
+
+    public Result GetRecommendedActivities(String userMail){
+
+        try {
+            Users user = UserBL.getInstance().getUser(userMail);
+            List<Events> allEvents = EventBL.getInstance().getAllEvents();
+
+            machineLearning ml = machineLearning.getInstance();
+            Collection<Events> events = ml.getRecommendedEventsByUser(user, allEvents);
+
             return ok(Utils.convertObjectToJsonString(events));
         } catch (Exception e) {
             e.printStackTrace();
