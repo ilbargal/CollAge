@@ -11,17 +11,6 @@
             <!-- Login Details -->
             <h3>פרטי התחברות</h3>
             <form ng-submit="saveProfile()">
-                <div class="3u 12u$(small)">
-                    <input type="email" name="email" id="email" ng-model="profile.email"
-                           value="profile.email" placeholder="דוא''ל" />
-                </div>
-                <br>
-                <div class="3u$ 12u$(small)">
-                    <input type="password" name="password" id="password" ng-model="profile.password"
-                           value="profile.password" placeholder="סיסמה" />
-                </div>
-                <br>
-
                 <div class="typeSection">
                     <div class="4u 12u$(small)">
                         <input type="radio" id="private"  ng-model="profile.type" name="type" ng-checked="profile.type == '0'" value="0">
@@ -121,9 +110,9 @@
 
                     <div style="float:left" class="4u">
                         <h4>קישור לתמונה:</h4>
-                        <input type="text" ng-model="profile.picture"  placeholder="הכנס קישור לתמונה" />
+                        <input type="text" ng-model="profile.profilePic"  placeholder="הכנס קישור לתמונה" />
                     <span class="image fit">
-                        <img src="../images/pic06.jpg" ng-src="{{profile.picture}}"
+                        <img ng-src="profile.profilePic"
                              name="profilePic" id="publicProfilePic" alt=""/>
                     </span>
                     </div>

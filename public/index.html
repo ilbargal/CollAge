@@ -81,8 +81,8 @@
                 <ul  style="text-align: right">
                     <li><img src="images/logo.png" class="logo" width="50" height="50" /></li>
                     <li style="padding-left: 80px;"><h1><a href="#/main">CollAge</a></h1></li>
-                    <li ng-if="auth.profile.picture && auth.isAuthenticated"><i class="icon big rounded"><img ng-src="{{auth.profile.picture}}" style="border-radius:30px; width: 100%; height: 100%"/></i></li>
-                    <li ng-if="auth.profile.fullname && auth.isAuthenticated"><a>{{auth.profile.firstname}} {{auth.profile.lastname}}</a></li>
+                    <li ng-if="auth.profile.user_metadata.profilePic && auth.isAuthenticated"><i class="icon big rounded"><img ng-src="{{auth.profile.user_metadata.profilePic}}" style="border-radius:30px; width: 100%; height: 100%"/></i></li>
+                    <li ng-if="auth.profile.user_metadata && auth.isAuthenticated"><a>{{auth.profile.user_metadata.firstname}} {{auth.profile.user_metadata.lastname}}</a></li>
                 </ul>
 
             </nav>
