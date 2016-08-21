@@ -38,7 +38,6 @@ public class DataBaseHandler {
         EntityManager em = emf.createEntityManager();
 
         T obj= (T)em.createNamedQuery(qry).setParameter(propName, id).getSingleResult();
-
         em.close();
         emf.close();
         return obj;
