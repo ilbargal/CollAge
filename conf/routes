@@ -27,5 +27,6 @@ GET     /*file                          controllers.Assets.at(path="/public", fi
 # Sign Up page:
 POST     /saveUser                     controllers.UsersController.saveUser()
 POST     /updateUser                   controllers.UsersController.updateUser()
+POST     /signupUser                   controllers.UsersController.insertNewUser(email: String, password: String)
 # Sign In page:
 #POST     /signin                       controllers.UsersController.signin()

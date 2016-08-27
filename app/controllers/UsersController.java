@@ -38,8 +38,22 @@ public class UsersController extends Controller {
         try {
             Form<Users> updatedForm = formFactory.form(Users.class).bindFromRequest();
             Users updatedUser = updatedForm.get();
+            updatedUser.setPassword(UserBL.getInstance().getUser(updatedUser.getMail()).getPassword());
             UserBL.getInstance().updateUser(updatedUser);
             return ok(Utils.convertObjectToJsonString(updatedUser));
+        }
+        catch (Exception e) {
+            return internalServerError(e.toString());
+        }
+    }
+
+    public Result insertNewUser(String email, String password) {
+        try {
+            Users user = new Users();
+            user.setMail(email);
+            user.setPassword(password);
+            UserBL.getInstance().updateUser(user);
+            return ok("ok");
         }
         catch (Exception e) {
             return internalServerError(e.toString());

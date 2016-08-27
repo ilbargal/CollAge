@@ -13,9 +13,9 @@
             <form ng-submit="saveProfile()">
                 <div class="typeSection">
                     <div class="4u 12u$(small)">
-                        <input type="radio" id="private"  ng-model="profile.type" name="type" ng-checked="profile.type == '0'" value="0">
+                        <input type="radio" id="private"  ng-model="profile.type" name="type" ng-checked="profile.type == 0" value="0">
                         <label for="private">פרטי</label>
-                        <input type="radio" id="public"  ng-model="profile.type" name="type" ng-checked="profile.type == '1'" value="1">
+                        <input type="radio" id="public"  ng-model="profile.type" name="type" ng-checked="profile.type == 1" value="1">
                         <label for="public">ציבורי</label>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                     <br>
                     <div class="3u 5u$(small)">
                         <input type="text" name="address" ng-model="profile.address" id="address"
-                               placeholder="כתובת"/>
+                               placeholder="כתובת" ng-autocomplete="profile.address" details="details1" options="options1" />
                     </div>
                     <br>
                     <div class="3u 5u$(small)">
@@ -99,7 +99,7 @@
 
                 </div>
 
-                <div  ng-if="profile.type == '1'">
+                <div  ng-if="profile.type == 1">
 
                     <h3>פרטי מרכז</h3>
                     <!-- Personal Details -->
