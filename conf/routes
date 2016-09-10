@@ -8,13 +8,13 @@ GET     /getAllEvents                   controllers.ActivitiesController.getAllA
 GET     /getAllEvents/:mail             controllers.ActivitiesController.GetRecommendedActivities(mail: String)
 GET     /getEvent/:id                   controllers.ActivitiesController.getActivity(id: String)
 GET     /getUsers                       controllers.MainController.getUsers()
+GET     /getUser/:mail                  controllers.UsersController.getUser(mail: String)
 POST    /addActivity                    controllers.ActivitiesController.addActivity()
 POST    /saveEventStatus                controllers.ActivitiesController.saveEventStatus()
 #POST    /person                        controllers.Application.addPerson()
 #GET     /persons                       controllers.Application.getPersons
 
 # Activities
-
 
 # Categories:
 GET     /getAllCategories               controllers.CategoriesController.getAllCategories()

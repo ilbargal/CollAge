@@ -1,135 +1,57 @@
-<!-- Profile -->
-<section id="view-profile" class="wrapper" dir="rtl">
-    <div class="container">
+<section id="one" name="view-profile" class="wrapper align-center">
 
+    <div class="container">
         <header class="major">
-            <h2>איזור אישי</h2>
+            <h2 ng-if="user.type == '0'"><i class="fa fa-user"></i> משתמש - {{user.firstName}}  {{user.lastName}}</h2>
+            <h2 ng-if="user.type == '1'"><i class="fa fa-users"></i> מרכז - {{user.firstName}}  {{user.lastName}}</h2>
         </header>
 
-        <!-- Form -->
-        <section>
-
-
-                    <div class="3u 5u$(small)">
-                        <input type="text" name="firstname" id="firstname" ng-model="profile.firstname"  placeholder="שם פרטי"/>
-                    </div>
-
-                    <div style="float:left" class="4u">
-                        <h4>קישור לתמונה:</h4>
-                        <input type="text" ng-model="profile.profilePic"  placeholder="הכנס קישור לתמונה" />
-                    <span class="image fit">
-                        <img ng-src="{{profile.profilePic}}"
-                             name="profilePic" id="profilePic" alt=""/>
-                    </span>
-                    </div>
-
-                    <br>
-                    <div class="3u 5u$(small)">
-                        <input type="text" name="lastname" id="lastname" ng-model="profile.lastname" placeholder="שם משפחה"/>
-                    </div>
-                    <br>
-                    <div class="genderSection">
-                        <div class="4u 12u$(small)">
-                            <input type="radio" id="male" ng-model="profile.gender" name="gender" ng-checked="profile.gender == '0'" value="0">
-                            <label for="male">זכר</label>
-                            <input type="radio" id="female" ng-model="profile.gender" name="gender" ng-checked="profile.gender == '1'" value="1">
-                            <label for="female">נקבה</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="birthday">
-                        <h4>תאריך לידה:</h4>
-                        <input type="date" ng-model="profile.birthday" name="birthday" id="birthday"/>
-                    </div>
-                    <br>
-                    <div class="3u 5u$(small)">
-                        <input type="text" name="address" ng-model="profile.address" id="address"
-                               placeholder="כתובת" ng-autocomplete="profile.address" details="details1" options="options1" />
-                    </div>
-                    <br>
-                    <div class="3u 5u$(small)">
-                        <input type="text" name="phone" ng-model="profile.phone" id="phone"
-                               placeholder="טלפון"/>
-                    </div>
-                    <br>
-                    <div class="3u$">
-                        <div class="select-wrapper">
-                            <select dir="rtl" name="job" id="job" ng-model="profile.job" placeholder="--מקצוע--">
-                                <option value="">- מקצוע - </option>
-                                <option value="צייר">צייר</option>
-                                <option value="מתכנת">מתכנת</option>
-                                <option value="מנהל">מנהל</option>
-                                <option value="מהנדס">מהנדס</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-
-
-                    <div class="participants category">
-                        <h4>קטגוריות:</h4>
-                        <!--<select size="5" id="mycategories" multiple ng-multiple="true" ng-model="selectedCategories" ng-options="c.name for c in allCategories" style="height: 100%"></select>-->
-                        <multiple-autocomplete ng-model="profile.selectedCategories"
-                                               suggestions-arr="allCategories"
-                                               object-property="name">
-                        </multiple-autocomplete>
-                    </div>
-
-                    <br>
-                    <br>
-                    <div class="12u$">
-                    <textarea dir="rtl" name="description" id="description"
-                              ng-model="profile.description" placeholder="קצת עלי..." rows="6"></textarea>
-                    </div>
-
+        <div class="row uniform 50%">
+            <div class="6u 12u$(small)">
+                <!-- description -->
+                <div class="row">
+                    <h2 style="font-style: italic; text-align: right;">"{{user.description}}"</h2>
                 </div>
-
-                <div  ng-if="profile.type == 1">
-
-                    <h3>פרטי מרכז</h3>
-                    <!-- Personal Details -->
-
-                    <div class="3u 5u$(small)">
-                        <input type="text" name="firstname" id="publicName" ng-model="profile.firstname"  placeholder="שם"/>
-                    </div>
-
-                    <div style="float:left" class="4u">
-                        <h4>קישור לתמונה:</h4>
-                        <input type="text" ng-model="profile.profilePic"  placeholder="הכנס קישור לתמונה" />
-                    <span class="image fit">
-                        <img ng-src="profile.profilePic"
-                             name="profilePic" id="publicProfilePic" alt=""/>
-                    </span>
-                    </div>
-
-                    <br>
-
-                    <div class="3u 5u$(small)">
-                        <input type="text" name="address" ng-model="profile.address" id="publicAddress"
-                               placeholder="כתובת"/>
-                    </div>
-                    <br>
-                    <div class="3u 5u$(small)">
-                        <input type="text" name="phone" ng-model="profile.phone" id="publicPhone"
-                               placeholder="טלפון"/>
-                    </div>
-
-                    <br>
-                    <div class="12u$">
-                    <textarea dir="rtl" name="description" id="publicDescription"
-                              ng-model="profile.description" placeholder="...קצת עלינו" rows="6"></textarea>
-                    </div>
-
+                <!-- phone -->
+                <div class="row">
+                    <span class="align-right fa fa-phone"></span>
+                    <p class="align-right">טלפון: </p>
+                    <h4>{{user.phone}}</h4>
                 </div>
-
-                <br>
-                <div class="12u$">
-                    <ul class="actions">
-                        <li><input type="submit" value="עדכן שינויים" class="update" /></li>
+                <!-- birthday -->
+                <div class="row">
+                    <span class="align-right fa fa-calendar"></span>
+                    <p class="align-right">תאריך לידה:</p>
+                    <h4>{{user.birthday}}</h4>
+                </div>
+                <!-- job -->
+                <div class="row">
+                    <span class="align-right fa fa-rocket"></span>
+                    <p class="align-right">מקצוע:</p>
+                    <h4>{{user.job}}</h4>
+                </div>
+                <!-- categories -->
+                <div class="row">
+                    <p class="align-right">קטגוריות: </p>
+                    <ul>
+                        <li ng-repeat="category in user.categories"><label>{{category.name}}</label></li>
                     </ul>
                 </div>
-            </form>
-        </section>
-
+                <!-- address + map location -->
+                <div class="row">
+                    <span class="align-right icon-location-pin"></span>
+                    <p class="align-right">כתובת:</p>
+                    <h4>{{user.address}}</h4>
+                    <br />
+                    <div id="userAddressMap" style="height: 400px; width: 100%"></div>
+                </div>
+            </div>
+            <div class="6u 12u$(small)">
+                <!-- picture -->
+                <div class="participants">
+                    <span class="image fit"><img src="{{user.profilePic}}" style="width: 50%;" /></span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>

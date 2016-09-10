@@ -22,6 +22,21 @@ public class UsersController extends Controller {
     @Inject
     FormFactory formFactory;
 
+    public Result getUser(String mail) {
+        try {
+            Users user = UserBL.getInstance().getUser(mail);
+
+            if (user != null) {
+                user.setPassword("");
+            }
+            return ok(Utils.convertObjectToJsonString(user));
+        }
+        catch(Exception e) {
+            return internalServerError(e.toString());
+        }
+
+    }
+
     public Result saveUser() {
         try {
             Form<Users> signUpForm = formFactory.form(Users.class).bindFromRequest();

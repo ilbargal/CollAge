@@ -17,6 +17,9 @@
             getUserCategories: function(email) {
                 return $http.get('/getUserCategories/' + email);
             },
+            getUserByMail: function (email) {
+                return $http.get('/getUser/' + email);
+            },
             addEvent: function (activity) {
                 return $http.post("/addActivity", activity);
             },
