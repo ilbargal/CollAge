@@ -17,6 +17,7 @@ import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import javax.jws.soap.SOAPBinding;
 import javax.xml.crypto.Data;
 import java.util.*;
 import java.util.stream.Stream;
@@ -43,6 +44,12 @@ public class ActivitiesController extends Controller {
             List<Events> allEvents = EventBL.getInstance().getAllEvents();
 
             machineLearning ml = machineLearning.getInstance();
+
+            if (ml.needToRefresh()){
+                ArrayList<Users> allUsers = new ArrayList<>(UserBL.getInstance().getAllUsers());
+                ml.refreshKnn(allUsers);
+            }
+
             Collection<Events> events = ml.getRecommendedEventsByUser(user, allEvents);
 
             return ok(Utils.convertObjectToJsonString(events));

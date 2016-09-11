@@ -3,6 +3,7 @@ import common.DataBaseHandler;
 import models.Users;
 
 import javax.xml.crypto.Data;
+import java.util.List;
 
 public class UserBL {
     private static UserBL _instance;
@@ -23,6 +24,10 @@ public class UserBL {
 
     public Users getUser(String email) {
         return DataBaseHandler.getInstance().singleQueryById("findUserByEmail", "email", email);
+    }
+
+    public List<Users> getAllUsers(){
+        return DataBaseHandler.getInstance().query("findAllUsers");
     }
 
     public void saveUser(Users myUser) {

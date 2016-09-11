@@ -1,17 +1,17 @@
 package machineLearning;
 
+import machineLearning.KNN.Knn;
+import machineLearning.KNN.Neighbor;
 import models.Categories;
 import models.Events;
 import models.Users;
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
+import org.joda.time.Instant;
+import org.joda.time.Interval;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
-/**
- * Created by thecr_000 on 28/05/2016.
- */
 public class machineLearning {
 
     private static machineLearning instance;
@@ -30,6 +30,8 @@ public class machineLearning {
     private double matchingUserCategoryScore;
     private double unMatchingUserCategoryScore;
 
+    private DateTime lastKnnRefresh;
+
     /**
      * Default constructor.
      * It's private because this class is a singleton.
@@ -40,6 +42,20 @@ public class machineLearning {
 
         this.matchingUserCategoryScore = 0.2;
         this.unMatchingUserCategoryScore = -0.1;
+    }
+
+    public boolean needToRefresh(){
+        if (lastKnnRefresh == null ||
+                new Duration(lastKnnRefresh, new Instant()).isLongerThan(new Duration(mlConsts.refreshInterval))){
+            return true;
+        }
+
+        return false;
+    }
+
+    public void refreshKnn(ArrayList<Users> users){
+        Knn.initialize(users, mlConsts.k);
+        Knn.getInstance().run();
     }
 
     /**
@@ -90,34 +106,46 @@ public class machineLearning {
         }
     }
 
+    /**
+     * Calculates the score of the event by most similar attending users (got from KNN)
+     * @param userCategories
+     * @param events
+     */
     private void calculateEventsScoreByAttendingUsers(Collection<Categories> userCategories, ArrayList<mlEvent> events){
+        ArrayList<ArrayList<Neighbor>> neighbors = Knn.getInstance().getNeighbors();
 
-        for (mlEvent e: events){
-            double sumUsersScores = 0;
-
-            for (Users u: e.getEvent().getUsers()){
-                double userScore = 0;
-
-                for (Categories c: u.getCategories()) {
-                    if (userCategories.contains(c)) {
-                        userScore += this.matchingUserCategoryScore;
-                    } else {
-                        userScore += this.unMatchingUserCategoryScore;
-                    }
-                }
-
-                // We only acknowledge users that have at least 3
-                // Similar categories as the user
-                if (userScore > this.matchingUserCategoryScore * 3){
-                    sumUsersScores += sumUsersScores;
-                }
-            }
-
-            e.setScore(e.getScore() + sumUsersScores);
+        for(ArrayList<Neighbor> n : neighbors){
+            //n.contains()
         }
+
+
+//        for (mlEvent e: events){
+//            double sumUsersScores = 0;
+//
+//            for (Users u: e.getEvent().getUsers()){
+//                double userScore = 0;
+//
+//                for (Categories c: u.getCategories()) {
+//                    if (userCategories.contains(c)) {
+//                        userScore += this.matchingUserCategoryScore;
+//                    } else {
+//                        userScore += this.unMatchingUserCategoryScore;
+//                    }
+//                }
+//
+//                // We only acknowledge users that have at least 3
+//                // Similar categories as the user
+//                if (userScore > this.matchingUserCategoryScore * 3){
+//                    sumUsersScores += sumUsersScores;
+//                }
+//            }
+//
+//            e.setScore(e.getScore() + sumUsersScores);
+//        }
     }
 
     private void calculateEventScore(Collection<Categories> userCategories, ArrayList<mlEvent> events) {
+
 
     }
 
