@@ -26,8 +26,8 @@ public class UserBL {
         return DataBaseHandler.getInstance().singleQueryById("findUserByEmail", "email", email);
     }
 
-    public Users getUserByName(String name) {
-        return DataBaseHandler.getInstance().singleQueryById("findUserByName", "name", name);
+    public Users getUsersByName(String name) {
+        return DataBaseHandler.getInstance().singleQueryById("findUsersByName", "name", name);
     }
 
     public List<Users> getAllUsers(){

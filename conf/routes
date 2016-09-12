@@ -9,10 +9,11 @@ GET     /getAllEvents/:mail             controllers.ActivitiesController.GetReco
 GET     /getEvent/:id                   controllers.ActivitiesController.getActivity(id: String)
 GET     /getUsers                       controllers.MainController.getUsers()
 GET     /getUser/:mail                  controllers.UsersController.getUser(mail: String)
+GET     /getUsersByName/:name           controllers.UsersController.getUsersByName(name: String)
 POST    /addActivity                    controllers.ActivitiesController.addActivity()
 POST    /saveEventStatus                controllers.ActivitiesController.saveEventStatus()
-#POST    /person                        controllers.Application.addPerson()
-#GET     /persons                       controllers.Application.getPersons
+#POST   /person                        controllers.Application.addPerson()
+#GET    /persons                       controllers.Application.getPersons
 
 # Activities
 

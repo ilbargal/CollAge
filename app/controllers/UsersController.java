@@ -36,9 +36,9 @@ public class UsersController extends Controller {
         }
     }
 
-    public Result getUserByName(String name) {
+    public Result getUsersByName(String name) {
         try {
-            Users user = UserBL.getInstance().getUser(name);
+            Users user = UserBL.getInstance().getUsersByName(name);
 
             return ok(Utils.convertObjectToJsonString(user));
         }

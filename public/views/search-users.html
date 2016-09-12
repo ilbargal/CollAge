@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
 <section id="two" class="wrapper style2 align-center">
     <div class="container" dir="rtl">
         <header>
             <h2>חפש אנשים</h2>
-            <input type="text" style="text-align:right;" ng-model="filterUsers.title" placeholder="חפש..." />
+            <input type="text" style="text-align:right;" ng-model="filterUsers.name" placeholder="חפש..." />
         </header>
-        </div>
-    </section>
-
-</head>
-<body>
-</body>
-<div class="row">
-    <user-preview ng-repeat="user in users | filter: filterUsers" ng-model="user"></user-preview>
-    <h2 ng-show="!(users| filter:filterUsers).length"></h2>
-</div>
-</html>
+    </div>
+    <div class="row">
+        <user-preview ng-repeat="user in users | filter: filterUsers" ng-model="user" id="user.mail" name="user.firstname"></user-preview>
+        <h2 ng-show="!(users| filter:filterUsers).length"></h2>
+    </div>
+</section>
