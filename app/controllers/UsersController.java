@@ -34,7 +34,17 @@ public class UsersController extends Controller {
         catch(Exception e) {
             return internalServerError(e.toString());
         }
+    }
 
+    public Result getUserByName(String name) {
+        try {
+            Users user = UserBL.getInstance().getUser(name);
+
+            return ok(Utils.convertObjectToJsonString(user));
+        }
+        catch(Exception e) {
+            return internalServerError(e.toString());
+        }
     }
 
     public Result saveUser() {

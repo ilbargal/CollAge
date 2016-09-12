@@ -26,6 +26,10 @@ public class UserBL {
         return DataBaseHandler.getInstance().singleQueryById("findUserByEmail", "email", email);
     }
 
+    public Users getUserByName(String name) {
+        return DataBaseHandler.getInstance().singleQueryById("findUserByName", "name", name);
+    }
+
     public List<Users> getAllUsers(){
         return DataBaseHandler.getInstance().query("findAllUsers");
     }
