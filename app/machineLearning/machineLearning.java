@@ -12,6 +12,10 @@ import org.joda.time.Interval;
 
 import java.util.*;
 
+/**
+ * This class is used in order to calculate which events (activities)
+ * the user will probably like.
+ */
 public class machineLearning {
 
     private static machineLearning instance;
@@ -44,6 +48,11 @@ public class machineLearning {
         this.unMatchingUserCategoryScore = -0.1;
     }
 
+    /**
+     * Checks if we need to re-run the KNN algorithm
+     * by checking if enough time has passed
+     * @return
+     */
     public boolean needToRefresh(){
         if (lastKnnRefresh == null ||
                 new Duration(lastKnnRefresh, new Instant()).isLongerThan(new Duration(mlConsts.refreshInterval))){
@@ -53,13 +62,18 @@ public class machineLearning {
         return false;
     }
 
+    /**
+     * Run the KNN alogrithm for the given users
+     * @param users
+     */
     public void refreshKnn(ArrayList<Users> users){
         Knn.initialize(users, mlConsts.k);
         Knn.getInstance().run();
     }
 
     /**
-     * Return an ArrayList of events ordered by their recommendation score;
+     * The main function of this class.
+     * Returns an ArrayList of events ordered by their recommendation score;
      * @param user
      * @param events
      * @return
@@ -67,7 +81,7 @@ public class machineLearning {
     public Collection<Events> getRecommendedEventsByUser(Users user, Collection<Events> events){
         ArrayList<mlEvent> mlEvents = new ArrayList<>();
 
-        // Create the list we are going to make our calaculations on
+        // Create the list we are going to make our calculations on
         for(Events e: events){
             mlEvent newE = new mlEvent(e);
             mlEvents.add(newE);
@@ -75,7 +89,7 @@ public class machineLearning {
 
         // Make the calculations
         calculateEventesScoreByCategories(user.getCategories(), mlEvents);
-        calculateEventsScoreByAttendingUsers(user.getCategories(), mlEvents);
+        calculateEventsScoreByAttendingUsers(user.getCategories(), mlEvents, user);
 
         // Put the events in a new array list
         // Ordered by the score they received
@@ -111,42 +125,23 @@ public class machineLearning {
      * @param userCategories
      * @param events
      */
-    private void calculateEventsScoreByAttendingUsers(Collection<Categories> userCategories, ArrayList<mlEvent> events){
-        ArrayList<ArrayList<Neighbor>> neighbors = Knn.getInstance().getNeighbors();
+    private void calculateEventsScoreByAttendingUsers(Collection<Categories> userCategories, ArrayList<mlEvent> events,
+                                                      Users user){
+        ArrayList<Users> similarUserList = Knn.getInstance().getSimilarUsers(user);
 
-        for(ArrayList<Neighbor> n : neighbors){
-            //n.contains()
+        for (mlEvent e: events){
+            double sumUsersScores = 0;
+
+            for (Users u: e.getEvent().getUsers()){
+                double userScore = 0;
+
+                if (similarUserList.contains(u)){
+                    sumUsersScores++;
+                }
+            }
+
+            e.setScore(e.getScore() + sumUsersScores);
         }
-
-
-//        for (mlEvent e: events){
-//            double sumUsersScores = 0;
-//
-//            for (Users u: e.getEvent().getUsers()){
-//                double userScore = 0;
-//
-//                for (Categories c: u.getCategories()) {
-//                    if (userCategories.contains(c)) {
-//                        userScore += this.matchingUserCategoryScore;
-//                    } else {
-//                        userScore += this.unMatchingUserCategoryScore;
-//                    }
-//                }
-//
-//                // We only acknowledge users that have at least 3
-//                // Similar categories as the user
-//                if (userScore > this.matchingUserCategoryScore * 3){
-//                    sumUsersScores += sumUsersScores;
-//                }
-//            }
-//
-//            e.setScore(e.getScore() + sumUsersScores);
-//        }
-    }
-
-    private void calculateEventScore(Collection<Categories> userCategories, ArrayList<mlEvent> events) {
-
-
     }
 
 }

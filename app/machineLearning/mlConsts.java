@@ -5,7 +5,7 @@ package machineLearning;
  */
 public class mlConsts {
     //KNN
-    public static int k = 5;
+    public static int k = 3;
     public static int refreshInterval = 7200000;
 
     // This constants are used to calculate distance between

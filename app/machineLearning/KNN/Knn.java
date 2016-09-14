@@ -29,8 +29,23 @@ public class Knn {
     private ArrayList<ArrayList<Neighbor>> neighbors;
     private int k;
 
-    public ArrayList<ArrayList<Neighbor>> getNeighbors() {
-        return neighbors;
+    public ArrayList<Users> getSimilarUsers(Users user) {
+        ArrayList<Users> users;
+        users = new ArrayList<>();
+
+        for (ArrayList<Neighbor> n : neighbors) {
+
+            for (Neighbor neighbor : n) {
+                if (neighbor.getUser().equals(user)) {
+                    for (Neighbor neighbor1 : n) {
+                        users.add(neighbor1.getUser());
+                    }
+                }
+            }
+
+        }
+
+        return users;
     }
 
     private Knn(ArrayList<Users> instances, int k){
