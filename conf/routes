@@ -16,6 +16,8 @@ POST    /saveEventStatus                controllers.ActivitiesController.saveEve
 #GET    /persons                       controllers.Application.getPersons
 
 # Activities
+GET     /joinEvent/:email/:eventId                    controllers.ActivitiesController.joinToEvent(email: String, eventId: Integer)
+GET     /leaveEvent/:email/:eventId                    controllers.ActivitiesController.leaveEvent(email: String, eventId: Integer)
 
 # Categories:
 GET     /getAllCategories               controllers.CategoriesController.getAllCategories()

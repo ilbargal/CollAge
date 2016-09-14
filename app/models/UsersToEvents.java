@@ -9,6 +9,10 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "users_to_events", schema = "collage", catalog = "")
 @IdClass(UsersToEventsPK.class)
+@NamedQueries({
+       // @NamedQuery(name="leaveEvent", query="DELETE from UsersToEvents e where e.userMail = :userMail and e.eventId = :eventId")
+        @NamedQuery(name="leaveEvent", query="DELETE from UsersToEvents e where e.userMail = ?1 and e.eventId = ?2")
+})
 public class UsersToEvents {
     private String userMail;
     private Integer eventId;

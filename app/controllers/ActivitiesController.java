@@ -20,6 +20,7 @@ import play.mvc.Result;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.crypto.Data;
 import java.util.*;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 import machineLearning.*;
@@ -106,6 +107,27 @@ public class ActivitiesController extends Controller {
         catch (Exception e) {
             return internalServerError(e.toString());
         }
+        return ok();
+    }
+
+    public Result joinToEvent(String email, int eventId){
+        try {
+            EventBL.getInstance().joinToEvent(email, eventId);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return ok();
+    }
+
+    public Result leaveEvent(String email, int eventId){
+
+        try {
+            EventBL.getInstance().leaveEvent(email, eventId);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
         return ok();
     }
 }

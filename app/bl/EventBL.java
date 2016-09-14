@@ -4,6 +4,7 @@ import ch.qos.logback.classic.db.DBHelper;
 import common.DataBaseHandler;
 import models.Events;
 import models.Users;
+import models.UsersToEvents;
 import org.hibernate.dialect.MySQL5InnoDBDialect;
 
 import javax.persistence.EntityManager;
@@ -47,6 +48,19 @@ public class EventBL {
         users.add(ownerUser);
         evt.setUsers(users);
         DataBaseHandler.getInstance().Persist(evt);
+    }
+
+    public void joinToEvent(String email, int eventId){
+        UsersToEvents usersToEvents = new UsersToEvents();
+        usersToEvents.setUserMail(email);
+        usersToEvents.setEventId(eventId);
+
+        DataBaseHandler.getInstance().Persist(usersToEvents);
+    }
+
+    public void leaveEvent(String email, int eventId){
+        DataBaseHandler.getInstance().
+                UpdateQuery("leaveEvent", email, eventId);
     }
 
     public void saveEventWithStatus(Events currEvent, String userMail, Integer status)

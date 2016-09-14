@@ -59,9 +59,9 @@ public class DataBaseHandler {
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
-        Query query = em.createNativeQuery(updateQuery);
+        Query query = em.createNamedQuery(updateQuery);
 
-        int index = 0;
+        int index = 1;
         for (Object param : params) {
             query.setParameter(index, param);
             index++;
@@ -98,5 +98,7 @@ public class DataBaseHandler {
 
         return results;
     }
+
+
 }
 
