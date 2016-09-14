@@ -26,7 +26,7 @@
                     <!-- Personal Details -->
 
                     <div class="3u 5u$(small)">
-                        <input type="text" name="firstname" id="firstname" ng-model="profile.firstname"  placeholder="שם פרטי"/>
+                        <input type="text" name="firstname" id="firstname" ng-model="profile.firstName"  placeholder="שם פרטי"/>
                     </div>
 
                     <div style="float:left" class="4u">
@@ -40,7 +40,7 @@
 
                     <br>
                     <div class="3u 5u$(small)">
-                        <input type="text" name="lastname" id="lastname" ng-model="profile.lastname" placeholder="שם משפחה"/>
+                        <input type="text" name="lastname" id="lastname" ng-model="profile.lastName" placeholder="שם משפחה"/>
                     </div>
                     <br>
                     <div class="genderSection">
@@ -84,7 +84,7 @@
                     <div class="participants category">
                         <h4>קטגוריות:</h4>
                         <!--<select size="5" id="mycategories" multiple ng-multiple="true" ng-model="selectedCategories" ng-options="c.name for c in allCategories" style="height: 100%"></select>-->
-                        <multiple-autocomplete ng-model="profile.selectedCategories"
+                        <multiple-autocomplete ng-model="profile.categories"
                                                suggestions-arr="allCategories"
                                                object-property="name">
                         </multiple-autocomplete>
