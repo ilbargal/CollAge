@@ -14,8 +14,7 @@ import java.util.Collection;
 @Entity
 @NamedQueries({
         @NamedQuery(name="findAllUsers", query="SELECT u FROM Users u"),
-        @NamedQuery(name="findUserByEmail", query="SELECT u FROM Users u WHERE u.mail LIKE :email"),
-        @NamedQuery(name="findUsersByName", query="SELECT u FROM Users u WHERE u.firstname LIKE :name OR u.lastname LIKE :name")
+        @NamedQuery(name="findUserByEmail", query="SELECT u FROM Users u WHERE u.mail LIKE :email")
 })
 public class Users {
     private String mail;

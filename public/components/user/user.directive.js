@@ -5,8 +5,12 @@
                 return $http.get('/getUsersByName/' + name);
             },
 
-            getUsersByName: function(name) {
+            getUserByMail: function(mail) {
                 return $http.get('/getUserByMail/' + mail);
+            },
+
+            getUsers: function() {
+                return $http.get('/getUsers');
             }
         };
     };
@@ -16,7 +20,6 @@
             restrict: 'E',
             scope: {
                 id: '@',
-                name: '@',
                 ngModel: '='
             },
             replace: true,
@@ -28,11 +31,12 @@
             }],
             link: function ($scope, element, attrs) {
                 var userProfile = $scope.ngModel;
-                $scope.name = userProfile.name;
+                $scope.name = userProfile.firstName + " " + userProfile.lastName;
+                $scope.id = userProfile.mail;
                 $scope.profilePic = userProfile.profilePic;
             } //DOM manipulation
         };
     };
 
-    angular.module('collAgeUserPrevDirective',['ngRoute']).directive('userPreview', userPreviewDirective);
+    angular.module('collAgeUserPrevDirective',['ngRoute']).service('userService', userService).directive('userPreview', userPreviewDirective);
 }());

@@ -13,6 +13,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created by Gal on 28-May-16.
@@ -36,11 +37,11 @@ public class UsersController extends Controller {
         }
     }
 
-    public Result getUsersByName(String name) {
+    public Result getUsers() {
         try {
-            Users user = UserBL.getInstance().getUsersByName(name);
-
-            return ok(Utils.convertObjectToJsonString(user));
+            List<Users> users = UserBL.getInstance().getAllUsers();
+            System.out.println(Utils.convertObjectToJsonString(users));
+            return ok(Utils.convertObjectToJsonString(users));
         }
         catch(Exception e) {
             return internalServerError(e.toString());
