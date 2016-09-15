@@ -58,7 +58,7 @@ public class FormattersProvider implements Provider<Formatters> {
             public Timestamp parse(String text, Locale locale) throws ParseException {
                 text = text.replace('T', ' ');
                 text = text.replace('Z', ' ');
-                SimpleDateFormat format = new SimpleDateFormat("YYYY-DD-MM HH:mm:ss.SSS");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
                 Timestamp t = new Timestamp(format.parse(text).getTime());
 
